@@ -1,6 +1,6 @@
 <?php
 
-require_once ('Pipedrive/API.php');
+require_once ('src/API.php');
 
 class APITest extends PHPUnit_Framework_TestCase
 {
@@ -9,9 +9,9 @@ class APITest extends PHPUnit_Framework_TestCase
     {
         $string = 'testtoken';
 
-		\Pipedrive\API::setToken($string);
+		\Pinvoice\Pipedrive\API::setToken($string);
 
-		$token = \Pipedrive\API::getToken();
+		$token = \Pinvoice\Pipedrive\API::getToken();
 
         $this->assertEquals($token, $string);
     }
