@@ -23,7 +23,7 @@ $pipedrive = \Pinvoice\Pipedrive\API::getInstance();
 ### Pipelines
 ```php
 // Get all pipelines
-$pipedrive->getPipelines()
+$pipedrive->getPipelines();
 
 // Get pipeline by ID
 $pipedrive->getPipeline($id);
