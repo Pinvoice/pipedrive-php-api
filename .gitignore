@@ -3,5 +3,6 @@ vendor/
 
 .idea
 .DS_Store
+run.php
 
 composer.lock
