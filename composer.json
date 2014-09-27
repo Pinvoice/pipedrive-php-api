@@ -1,0 +1,21 @@
+{
+    "name": "pinvoice/pipedrive-php-api",
+    "description": "PHP API for Pipedrive",
+    "keywords": ["pipedrive", "api"],
+    "require": {
+        "curl/curl": "1.1.5"
+    },
+    "license": "MIT",
+    "authors": [{
+        "name": "Melvin Lammerts",
+        "email": "melvin@melvin.sh"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Pinvoice\\Pipedrive\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.2.*"
+    }
+}
