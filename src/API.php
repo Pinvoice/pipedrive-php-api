@@ -78,6 +78,14 @@ class API
         
         return json_decode($curl->response);
     }
+
+    public static function http_get_with_params($url) {
+        $curl = new \Curl\Curl();
+        $curl->get(self::ENDPOINT . $url . '&api_token=' . self::getToken());
+        $curl->close();
+        
+        return json_decode($curl->response);
+    }
     
     /**
      * Define API funcs
@@ -87,6 +95,12 @@ class API
     }
     public static function getPipeline($id) {
         return Pipelines::getPipeline($id);
+    }
+    public static function getStages() {
+        return Stages::getStages();
+    }
+    public static function getStagesByPipelineId($pipeline_id) {
+        return Stages::getStagesByPipelineId($pipeline_id);
     }
     
     // etc...
