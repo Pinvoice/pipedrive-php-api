@@ -19,6 +19,16 @@ require 'vendor/autoload.php';
 $pipedrive = \Pinvoice\Pipedrive\API::getInstance();
 ```
 
+## Usage
+### Pipelines
+```php
+// Get all pipelines
+$pipedrive->getPipelines()
+
+// Get pipeline by ID
+$pipedrive->getPipeline($id);
+```
+
 ## Development
 
 Run `composer install` in this directory. 
