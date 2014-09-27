@@ -11,7 +11,7 @@ echo '>> Starting unit tests' . PHP_EOL;
 $projectName = basename(getcwd());
 
 // execute unit tests
-exec('vendor/bin/phpunit tests', $output, $returnCode); // cwd is assumed here
+exec('vendor/bin/phpunit test', $output, $returnCode); // cwd is assumed here
 
 // if the build failed, output a summary and fail
 if ($returnCode !== 0) {
