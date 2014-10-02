@@ -46,9 +46,9 @@ class API
           {
             return call_user_func_array(__NAMESPACE__ . '\\' . $class . '::' . $name, $arguments);
           }
-          
-      }
-      return null; // or error
+        }
+
+        return null; // or error
     }
 
     /**
