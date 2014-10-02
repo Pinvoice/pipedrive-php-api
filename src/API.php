@@ -39,6 +39,11 @@ class API
         return self::$_instance;
     }
     
+    /**
+     * Function used to allow dynamic functions (like $instance_of_API->getPipelines())
+     * Remember to register classes in $classes array
+     * @return mixed return value of function or null if no such function exists
+     */
     public function __call($name, $arguments)
     {
         foreach(self::$classes as $class) {
