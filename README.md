@@ -26,7 +26,19 @@ $pipedrive = \Pinvoice\Pipedrive\API::getInstance();
 $pipedrive->getPipelines();
 
 // Get pipeline by ID
-$pipedrive->getPipeline($id);
+$pipedrive->getPipeline(1);
+
+// Add pipeline with name
+$pipedrive->getPipeline(array('name' => 'My happy little pipeline'));
+```
+
+### Stages
+```php
+// Get all stages
+$pipedrive->getStages();
+
+// Returns stages for provided pipeline
+$pipedrive->getStagesByPipelineId(1);
 ```
 
 ## Development
