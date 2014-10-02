@@ -23,7 +23,7 @@ class API
     /**
      * The API endpoint to use
      */
-    const ENDPOINT = 'https://api.pipedrive.com/v1/';
+    const ENDPOINT = 'http://api.pipedrive.com/v1/';
 
     /**
      * Returns singleton class instance
