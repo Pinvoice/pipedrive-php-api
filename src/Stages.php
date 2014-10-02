@@ -21,7 +21,7 @@ class Stages
      * Get all stages for pipeline
      *
      * @param pipeline_id int ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
-     * @return array Returns stages for proviced pipeline
+     * @return array Returns stages for provided pipeline
      */
     
     public static function getStagesByPipelineId($pipeline_id) {
