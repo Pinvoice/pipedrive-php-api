@@ -29,5 +29,20 @@ class Pipelines
 
         return API::safe_return($data);
     }
+
+    /**
+     * Add a new pipeline
+     *
+     * @return object New pipeline
+     */
+    public static function addPipeline(array $args) {
+
+        // validation....
+
+        $data = API::http_post('/pipelines', $args);
+
+        return API::safe_return($data);
+    }
+
 }
 ?>
