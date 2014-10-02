@@ -4,12 +4,9 @@ namespace Pinvoice\Pipedrive;
 // Require Composer packages
 require_once ('vendor/autoload.php');
 
-// Require API objects
-require_once ('Pipelines.php');
-
 class API
 {
-    
+
     /**
      * The current API instance
      */
@@ -20,6 +17,11 @@ class API
      */
     private static $token = null;
     
+    /** 
+     * The available API classes
+     */
+    private static $classes = array('Pipelines', 'Stages');
+
     /**
      * The API endpoint to use
      */
@@ -33,10 +35,22 @@ class API
     public static function getInstance() {
         if (self::$_instance === null) {
             self::$_instance = new self;
-        }
+        }   
         return self::$_instance;
     }
     
+    public function __call($name, $arguments)
+    {
+        foreach(self::$classes as $class) {
+          if (method_exists (__NAMESPACE__ . '\\' . $class, $name))
+          {
+            return call_user_func_array(__NAMESPACE__ . '\\' . $class . '::' . $name, $arguments);
+          }
+          
+      }
+      return null; // or error
+    }
+
     /**
      * Gets the API token
      *
@@ -94,29 +108,6 @@ class API
         
         return json_decode($curl->response);
     }
-
-    
-    /**
-     * Define API funcs
-     */
-    public static function getPipelines() {
-        return Pipelines::getPipelines();
-    }
-    public static function getPipeline($id) {
-        return Pipelines::getPipeline($id);
-    }
-    public static function addPipeline(array $args) {
-        return Pipelines::addPipeline($args);
-    }
-    public static function getStages() {
-        return Stages::getStages();
-    }
-    public static function getStagesByPipelineId($pipeline_id) {
-        return Stages::getStagesByPipelineId($pipeline_id);
-    }
-    
-    // etc...
-    
     
 }
 ?>
