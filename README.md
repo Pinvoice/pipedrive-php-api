@@ -29,7 +29,9 @@ $pipedrive->getPipelines();
 $pipedrive->getPipeline(1);
 
 // Add pipeline with name
-$pipedrive->getPipeline(array('name' => 'My happy little pipeline'));
+$pipedrive->addPipeline(array(
+  'name' => 'My happy little pipeline'
+));
 ```
 
 ### Stages
