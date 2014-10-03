@@ -15,8 +15,11 @@ Include the composer autoloader in your script. Set your Pipedrive API token and
 
 ``` php
 require 'vendor/autoload.php';
-\Pinvoice\Pipedrive\API::setToken('TOKEN');
-$pipedrive = \Pinvoice\Pipedrive\API::getInstance();
+
+use Pinvoice\Pipedrive\API as PipedriveAPI;
+
+PipedriveAPI::setToken('TOKEN');
+$pipedrive = PipedriveAPI::getInstance();
 ```
 
 ## Usage
