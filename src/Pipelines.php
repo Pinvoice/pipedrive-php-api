@@ -1,48 +1,47 @@
 <?php
 namespace Pinvoice\Pipedrive;
 
-class Pipelines
-{
-    
-    /**
-     * Get Pipelines
-     *
-     * @return array Array of pipelines
-     */
-    public static function getPipelines() {
+class Pipelines {
 
-        // GET /pipelines
-        $data = API::http_get('/pipelines');
+	/**
+	 * Get Pipelines
+	 *
+	 * @return array Array of pipelines
+	 */
+	public static function getPipelines() {
 
-        return API::safe_return($data);
-    }
-    
-    /**
-     * Get Pipeline by ID
-     *
-     * @return object Single pipeline
-     */
-    public static function getPipeline($id) {
+		// GET /pipelines
+		$data = API::http_get('/pipelines');
 
-        // GET /pipelines/{id}
-        $data = API::http_get('/pipelines/' . $id);
+		return API::safe_return($data);
+	}
 
-        return API::safe_return($data);
-    }
+	/**
+	 * Get Pipeline by ID
+	 *
+	 * @return object Single pipeline
+	 */
+	public static function getPipeline($id) {
 
-    /**
-     * Add a new pipeline
-     *
-     * @return object New pipeline
-     */
-    public static function addPipeline(array $args) {
+		// GET /pipelines/{id}
+		$data = API::http_get('/pipelines/' . $id);
 
-        // validation....
+		return API::safe_return($data);
+	}
 
-        $data = API::http_post('/pipelines', $args);
+	/**
+	 * Add a new pipeline
+	 *
+	 * @return object New pipeline
+	 */
+	public static function addPipeline(array $args) {
 
-        return API::safe_return($data);
-    }
+		// validation....
+
+		$data = API::http_post('/pipelines', $args);
+
+		return API::safe_return($data);
+	}
 
 }
 ?>
