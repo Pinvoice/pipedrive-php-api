@@ -42,6 +42,9 @@ $pipedrive->addPipeline(array(
 // Get all stages
 $pipedrive->getStages();
 
+// Get stage by ID
+$pipedrive->getStage(70);
+
 // Returns stages for provided pipeline
 $pipedrive->getStagesByPipelineId(1);
 ```
