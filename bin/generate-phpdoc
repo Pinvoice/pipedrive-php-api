@@ -1,0 +1,1 @@
+phpdoc -d src -t docs/phpdoc --template responsive-twig
