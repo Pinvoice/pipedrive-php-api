@@ -20,6 +20,7 @@ class Deals {
 	 *
 	 * @return array Array of all deal objects.
 	 */
+
 	public static function getDeals($args = array()) {
 
 		$accepted_params = array('filter_id', 'start', 'limit', 'sort_by', 'sort_mode', 'owned_by_you');
@@ -42,6 +43,7 @@ class Deals {
 	 *
 	 * @return array Object of specific deal.
 	 */
+
 	public static function getDeal($deal_id) {
 
 		// GET /deals/1

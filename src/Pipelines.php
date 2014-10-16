@@ -12,6 +12,7 @@ class Pipelines {
 	 *
 	 * @return array Array of pipelines
 	 */
+
 	public static function getPipelines() {
 
 		// GET /pipelines
@@ -27,6 +28,7 @@ class Pipelines {
 	 *
 	 * @return object Single pipeline
 	 */
+
 	public static function getPipeline($id) {
 
 		// GET /pipelines/{id}
@@ -43,6 +45,7 @@ class Pipelines {
 	 *
 	 * @return object New pipeline
 	 */
+
 	public static function addPipeline(array $args) {
 
 		// validation....
