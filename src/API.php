@@ -149,7 +149,7 @@ class API {
 	}
 
 	/**
-	 * Function to build the query sting.
+	 * Function to build the query string.
 	 * Will check which keys from $args are in $accepted_params, and build a query string from the key/val pairs.
 	 *
 	 * @param array $args Array of parameters (key,value).
