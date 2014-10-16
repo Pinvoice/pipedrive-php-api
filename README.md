@@ -49,6 +49,34 @@ $pipedrive->getStage(70);
 $pipedrive->getStagesByPipelineId(1);
 ```
 
+### Deals
+```php
+// Get all deals
+$pipedrive->getDeals();
+$pipedrive->getDeals(array(
+  'filter_id' => 12,
+  'start' => 3,
+  'limit' => 1,
+  'sort_by' => "first_name",
+  'sort_mode' => "asc",
+  'owned_by_you' => true
+));
+
+// Get deal by ID
+$pipedrive->getDeal(70);
+
+// Find deals by name
+$pipedrive->getDealsByName(array(
+	'term' => "money"
+));
+$pipedrive->getDealsByName(array(
+	'term' => "money",
+	'person_id' => 1,
+	'org_id' => 2
+));
+
+```
+
 ## Development
 
 Run `composer install` in this directory. 
