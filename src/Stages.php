@@ -12,7 +12,6 @@ class Stages {
 	 *
 	 * @return array Returns data about all stages
 	 */
-
 	public static function getStages() {
 
 		// GET /stages
@@ -28,7 +27,6 @@ class Stages {
 	 *
 	 * @return array Returns data about a specific stage
 	 */
-
 	public static function getStage($stage_id) {
 
 		// GET /stages/1
@@ -44,7 +42,6 @@ class Stages {
 	 *
 	 * @return array Returns stages for provided pipeline
 	 */
-
 	public static function getStagesByPipelineId($pipeline_id) {
 
 		// GET /stages/?pipeline_id=1

@@ -12,7 +12,6 @@ class Pipelines {
 	 *
 	 * @return array Array of pipelines
 	 */
-
 	public static function getPipelines() {
 
 		// GET /pipelines
@@ -28,7 +27,6 @@ class Pipelines {
 	 *
 	 * @return object Single pipeline
 	 */
-
 	public static function getPipeline($id) {
 
 		// GET /pipelines/{id}
@@ -41,14 +39,12 @@ class Pipelines {
 	 * Add a new pipeline
 	 *
 	 * @param array $args Array of several possible arguments
-	 * TODO: arguments
 	 *
 	 * @return object New pipeline
 	 */
-
 	public static function addPipeline(array $args) {
 
-		// validation....
+		// TODO: Arguments in doc and validation...
 
 		$data = API::http_post('/pipelines', $args);
 

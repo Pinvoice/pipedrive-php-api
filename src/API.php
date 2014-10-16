@@ -14,23 +14,23 @@ class API {
 	 * The current API instance.
 	 * @var object
 	 */
-
 	private static $instance = null;
 
 	/**
 	 * The Pipedrive API token.
 	 * @var string
 	 */
-
 	private static $token = null;
 
 	/**
 	 * The available API classes (configurable).
 	 * @var array
 	 */
-
 	private static $classes = array('Pipelines', 'Stages', 'Deals');
 
+	/**
+	 * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
+	 */
 	const ENDPOINT = 'http://api.pipedrive.com/v1/';
 
 	/**
@@ -38,7 +38,6 @@ class API {
 	 *
 	 * @return object Pipedrive API instance.
 	 */
-
 	public static function getInstance() {
 		if (self::$instance === null) {
 			self::$instance = new self;
@@ -57,7 +56,6 @@ class API {
 	 *
 	 * @return mixed Returns method if method exists.
 	 */
-
 	public function __call($name, $arguments) {
 		foreach (self::$classes as $class) {
 			if (method_exists(__NAMESPACE__ . '\\' . $class, $name)) {
@@ -72,7 +70,6 @@ class API {
 	 *
 	 * @return string API token
 	 */
-
 	public static function getToken() {
 		return self::$token;
 	}
@@ -84,7 +81,6 @@ class API {
 	 *
 	 * @return void
 	 */
-
 	public static function setToken($token) {
 		self::$token = $token;
 	}
@@ -96,7 +92,6 @@ class API {
 	 *
 	 * @return mixed Return data.
 	 */
-
 	public static function safe_return($data) {
 		if (!$data->success) {
 			throw new \Exception(isset($data->error) ? $data->error : "Unknown error");
@@ -113,7 +108,6 @@ class API {
 	 *
 	 * @return mixed Response data.
 	 */
-
 	public static function http_get($url) {
 		$curl = new \Curl\Curl();
 		$curl->get(self::ENDPOINT . $url . '?api_token=' . self::getToken());
@@ -130,7 +124,6 @@ class API {
 	 *
 	 * @return mixed Response data.
 	 */
-
 	public static function http_get_with_params($url) {
 		$curl = new \Curl\Curl();
 		$curl->get(self::ENDPOINT . $url . '&api_token=' . self::getToken());
@@ -147,7 +140,6 @@ class API {
 	 *
 	 * @return mixed Response data.
 	 */
-
 	public static function http_post($url, array $args = array()) {
 		$curl = new \Curl\Curl();
 		$curl->post(self::ENDPOINT . $url . '?api_token=' . self::getToken(), $args);
@@ -167,7 +159,6 @@ class API {
 	 *
 	 * @return string Query string for HTTP request.
 	 */
-
 	public static function build_query_string($args, $accepted_params) {
 		$query_string = "";
 		$first = true;
