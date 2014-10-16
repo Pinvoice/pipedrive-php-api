@@ -12,21 +12,21 @@ class API {
 
 	/**
 	 * The current API instance.
-	 * @var object $instance
+	 * @var object
 	 */
 
 	private static $instance = null;
 
 	/**
 	 * The Pipedrive API token.
-	 * @var string $token
+	 * @var string
 	 */
 
 	private static $token = null;
 
 	/**
 	 * The available API classes (configurable).
-	 * @var array $classes
+	 * @var array
 	 */
 
 	private static $classes = array('Pipelines', 'Stages', 'Deals');
