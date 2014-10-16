@@ -74,7 +74,6 @@ $pipedrive->getDealsByName(array(
 	'person_id' => 1,
 	'org_id' => 2
 ));
-
 ```
 
 ## Development
