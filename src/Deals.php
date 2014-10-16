@@ -1,21 +1,25 @@
 <?php
+
 namespace Pinvoice\Pipedrive;
 
+/**
+ * All functions for the Deal object in Pipedrive.
+ */
 class Deals {
 
 	/**
 	 * Get all deals.
 	 *
-	 * @param $args['filter_id']     number      ID of the filter to use.
-	 * @param $args['start']         number      Pagination start.
-	 * @param $args['limit']         number      Items shown per page.
-	 * @param $args['sort_by']       string      Field name (key) to sort with. Only first-level field keys are supported (no nested keys).
-	 * @param $args['sort_mode']     enumerated  "asc" (ascending) OR "desc (descending).
-	 * @param $args['owned_by_you']  boolean     When supplied, only deals owned by you are returned.
+	 * @param array $args Array of several possible arguments:
+	 * $args['filter_id']     number      ID of the filter to use.
+	 * $args['start']         number      Pagination start.
+	 * $args['limit']         number      Items shown per page.
+	 * $args['sort_by']       string      Field name (key) to sort with. Only first-level field keys are supported (no nested keys).
+	 * $args['sort_mode']     enumerated  "asc" (ascending) OR "desc (descending).
+	 * $args['owned_by_you']  boolean     When supplied, only deals owned by you are returned.
 	 *
 	 * @return array Array of all deal objects.
 	 */
-
 	public static function getDeals($args = array()) {
 
 		$accepted_params = array('filter_id', 'start', 'limit', 'sort_by', 'sort_mode', 'owned_by_you');
@@ -34,7 +38,7 @@ class Deals {
 	/**
 	 * Get deal
 	 *
-	 * @param  $deal_id  number ID of the deal (required).
+	 * @param int $deal_id ID of the deal (required).
 	 *
 	 * @return array Object of specific deal.
 	 */
@@ -49,9 +53,10 @@ class Deals {
 	/**
 	 * Find deals by name.
 	 *
-	 * @param  term       string  Search term to look for (required).
-	 * @param  person_id  number  ID of the person deal is associated with.
-	 * @param  org_id     number  ID of the organization deal is associated with.
+	 * @param array $args Array of several possible arguments:
+	 * $args['term']       string  Search term to look for (required).
+	 * $args['person_id']  number  ID of the person deal is associated with.
+	 * $args['org_id']     number  ID of the organization deal is associated with.
 	 *
 	 * @return mixed Array of deal objects or NULL.
 	 */

@@ -162,7 +162,7 @@
                 <h1>Deals</h1>
                 <small style="display: block; text-align: right">
                                                         </small>
-                <p class="short_description"></p>
+                <p class="short_description">All functions for the Deal object in Pipedrive.</p>
                 <div class="details">
                     <div class="long_description">
                         
@@ -183,7 +183,7 @@
                                                                 <a id="method_getDeal"></a>
                         <div class="element clickable method public  method_getDeal" data-toggle="collapse" data-target=".method_getDeal .collapse">
                             <h2>Get deal</h2>
-                            <pre>getDeal( $deal_id) : array</pre>
+                            <pre>getDeal(integer $deal_id) : array</pre>
                             <div class="labels">
                                                                 <span class="label">static</span>                                                                                                                            </div>
 
@@ -198,7 +198,7 @@
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$deal_id</h4>
-                                                <code></code><p><p>number ID of the deal (required).</p></p>
+                                                <code>integer</code><p><p>ID of the deal (required).</p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -210,7 +210,7 @@
                                             <a id="method_getDeals"></a>
                         <div class="element clickable method public  method_getDeals" data-toggle="collapse" data-target=".method_getDeals .collapse">
                             <h2>Get all deals.</h2>
-                            <pre>getDeals( $args = array()) : array</pre>
+                            <pre>getDeals(array $args = array()) : array</pre>
                             <div class="labels">
                                                                 <span class="label">static</span>                                                                                                                            </div>
 
@@ -225,7 +225,13 @@
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$args</h4>
-                                                <code></code><p></p>
+                                                <code>array</code><p><p>Array of several possible arguments:
+$args['filter_id']     number      ID of the filter to use.
+$args['start']         number      Pagination start.
+$args['limit']         number      Items shown per page.
+$args['sort_by']       string      Field name (key) to sort with. Only first-level field keys are supported (no nested keys).
+$args['sort_mode']     enumerated  "asc" (ascending) OR "desc (descending).
+$args['owned_by_you']  boolean     When supplied, only deals owned by you are returned.</p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -252,7 +258,10 @@
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
                                                 <h4>$args</h4>
-                                                <code>array</code><p></p>
+                                                <code>array</code><p><p>Array of several possible arguments:
+$args['term']       string  Search term to look for (required).
+$args['person_id']  number  ID of the person deal is associated with.
+$args['org_id']     number  ID of the organization deal is associated with.</p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -283,7 +292,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Thu, 16 Oct 2014 21:00:53 +0200.<br/>
+            generated on Thu, 16 Oct 2014 21:28:42 +0200.<br/>
     </footer>
     </body>
 </html>

@@ -1,21 +1,30 @@
 <?php
+
 namespace Pinvoice\Pipedrive;
 
 // Require Composer packages
 require_once ('vendor/autoload.php');
 
+/**
+ * The API class is the main class and communicates with Pipedrive.
+ */
 class API {
+	/**
+	 * The current API instance.
+	 * @var object $instance
+	 */
+	private static $instance = null;
 
 	/**
-	 * @var object $_instance The current API instance.
-	 * @var string $token     The Pipedrive API token.
-	 * @var array  $classes   The available API classes (configurable).
-	 * @var const  ENDPOINT   The API endpoint to use (configurable).
+	 * The Pipedrive API token.
+	 * @var string $token
 	 */
-	private static $_instance = null;
-
 	private static $token = null;
 
+	/**
+	 * The available API classes (configurable).
+	 * @var array $classes
+	 */
 	private static $classes = array('Pipelines', 'Stages', 'Deals');
 
 	const ENDPOINT = 'http://api.pipedrive.com/v1/';
@@ -26,10 +35,10 @@ class API {
 	 * @return object Pipedrive API instance.
 	 */
 	public static function getInstance() {
-		if (self::$_instance === null) {
-			self::$_instance = new self;
+		if (self::$instance === null) {
+			self::$instance = new self;
 		}
-		return self::$_instance;
+		return self::$instance;
 	}
 
 	/**
@@ -37,7 +46,7 @@ class API {
 	 * Only uses registered classes in self::$classes array (!).
 	 *
 	 * @param string $name Name of method to be called.
-	 * @param array  $args Arguments to calll method with.
+	 * @param array $arguments Arguments to calll method with.
 	 *
 	 * @throws Exception if method does not exist.
 	 *

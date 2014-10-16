@@ -203,7 +203,7 @@
                 <h1>API</h1>
                 <small style="display: block; text-align: right">
                                                         </small>
-                <p class="short_description"></p>
+                <p class="short_description">The API class is the main class and communicates with Pipedrive.</p>
                 <div class="details">
                     <div class="long_description">
                         
@@ -224,7 +224,7 @@
                                                                 <a id="method___call"></a>
                         <div class="element clickable method public  method___call" data-toggle="collapse" data-target=".method___call .collapse">
                             <h2>Function used to allow dynamic methods like &#039;$instance_of_API-&gt;getPipelines()&#039;.</h2>
-                            <pre>__call(string $name,  $arguments) : mixed</pre>
+                            <pre>__call(string $name, array $arguments) : mixed</pre>
                             <div class="labels">
                                                                                                                                                                                             </div>
 
@@ -252,7 +252,7 @@
                                             </div>
                                                                                     <div class="subelement argument">
                                                 <h4>$arguments</h4>
-                                                <code></code><p></p>
+                                                <code>array</code><p><p>Arguments to calll method with.</p></p>
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
@@ -521,10 +521,10 @@
                             </div>
                                             
                                                                 <h3><i class="icon-custom icon-property"></i> Properties</h3>
-                                                    <a id="property__instance"> </a>
-                            <div class="element clickable property  private property__instance" data-toggle="collapse" data-target=".property__instance .collapse">
+                                                    <a id="property_instance"> </a>
+                            <div class="element clickable property  private property_instance" data-toggle="collapse" data-target=".property_instance .collapse">
                                 <h2>The current API instance.</h2>
-                                <pre>_instance : object</pre>
+                                <pre>instance : object</pre>
                                 <div class="labels">
                                                                         <span class="label">static</span>                                </div>
                                 <div class="row collapse">
@@ -537,10 +537,7 @@
                                                         var
                                                     </th>
                                                     <td>
-                                                                                                                    <p>The current API instance.</p>
-                                                                                                                    <p>The Pipedrive API token.</p>
-                                                                                                                    <p>The available API classes (configurable).</p>
-                                                                                                                    <p>ENDPOINT   The API endpoint to use (configurable).</p>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
@@ -552,8 +549,8 @@
                             </div>
                                                     <a id="property_token"> </a>
                             <div class="element clickable property  private property_token" data-toggle="collapse" data-target=".property_token .collapse">
-                                <h2>token</h2>
-                                <pre>token : </pre>
+                                <h2>The Pipedrive API token.</h2>
+                                <pre>token : string</pre>
                                 <div class="labels">
                                                                         <span class="label">static</span>                                </div>
                                 <div class="row collapse">
@@ -563,22 +560,23 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>string</code>
                                                                             </div>
                                 </div>
                             </div>
                                                     <a id="property_classes"> </a>
                             <div class="element clickable property  private property_classes" data-toggle="collapse" data-target=".property_classes .collapse">
-                                <h2>classes</h2>
-                                <pre>classes : </pre>
+                                <h2>The available API classes (configurable).</h2>
+                                <pre>classes : array</pre>
                                 <div class="labels">
                                                                         <span class="label">static</span>                                </div>
                                 <div class="row collapse">
@@ -588,15 +586,16 @@
                                         <table class="table">
                                                                                             <tr>
                                                     <th>
-                                                        
+                                                        var
                                                     </th>
                                                     <td>
+                                                                                                                    
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code></code>
+                                            <code>array</code>
                                                                             </div>
                                 </div>
                             </div>
@@ -620,7 +619,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Thu, 16 Oct 2014 21:00:53 +0200.<br/>
+            generated on Thu, 16 Oct 2014 21:28:42 +0200.<br/>
     </footer>
     </body>
 </html>

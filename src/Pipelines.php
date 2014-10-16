@@ -1,6 +1,10 @@
 <?php
+
 namespace Pinvoice\Pipedrive;
 
+/**
+ * All functions for the Pipeline object in Pipedrive.
+ */
 class Pipelines {
 
 	/**
@@ -19,6 +23,8 @@ class Pipelines {
 	/**
 	 * Get Pipeline by ID
 	 *
+	 * @param int $id ID of Pipeline to get
+	 *
 	 * @return object Single pipeline
 	 */
 	public static function getPipeline($id) {
@@ -31,6 +37,9 @@ class Pipelines {
 
 	/**
 	 * Add a new pipeline
+	 *
+	 * @param array $args Array of several possible arguments
+	 * TODO: arguments
 	 *
 	 * @return object New pipeline
 	 */
