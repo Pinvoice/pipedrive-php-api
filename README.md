@@ -8,16 +8,16 @@ Status
 
 API | Implementation | Documentation
 --- | ------------- | -------------------
-[Activities](#)    | [X](#) | [X](#)
-[Deals](#)         | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Deals.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#deals)
-[Email](#)         | [X](#) | [X](#)
-[Files](#)         | [X](#) | [X](#)
-[Notes](#)         | [X](#) | [X](#)
-[Organisations](#) | [X](#) | [X](#)
-[Persons](#)       | [X](#) | [X](#)
-[Pipelines](#)     | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Pipelines.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#pipelines)
-[Products](#)      | [X](#) | [X](#)
-[Stages](#)        | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Stages.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#stages)
+Activities    | [X](#) | [X](#)
+Deals         | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Deals.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#deals)
+Email         | [X](#) | [X](#)
+Files         | [X](#) | [X](#)
+Notes         | [X](#) | [X](#)
+Organisations | [X](#) | [X](#)
+Persons       | [X](#) | [X](#)
+Pipelines     | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Pipelines.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#pipelines)
+Products      | [X](#) | [X](#)
+Stages        | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Stages.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#stages)
 
 √ = Complete  
 P = Partial  
