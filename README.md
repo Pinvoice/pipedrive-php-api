@@ -43,31 +43,6 @@ $pipedrive = PipedriveAPI::getInstance();
 ```
 
 ## Usage
-### Pipelines
-```php
-// Get all pipelines
-$pipedrive->getPipelines();
-
-// Get pipeline by ID
-$pipedrive->getPipeline(1);
-
-// Add pipeline with name
-$pipedrive->addPipeline(array(
-  'name' => 'My happy little pipeline'
-));
-```
-
-### Stages
-```php
-// Get all stages
-$pipedrive->getStages();
-
-// Get stage by ID
-$pipedrive->getStage(70);
-
-// Returns stages for provided pipeline
-$pipedrive->getStagesByPipelineId(1);
-```
 
 ### Deals
 ```php
@@ -94,6 +69,32 @@ $pipedrive->getDealsByName(array(
 	'person_id' => 1,
 	'org_id' => 2
 ));
+```
+
+### Pipelines
+```php
+// Get all pipelines
+$pipedrive->getPipelines();
+
+// Get pipeline by ID
+$pipedrive->getPipeline(1);
+
+// Add pipeline with name
+$pipedrive->addPipeline(array(
+  'name' => 'My happy little pipeline'
+));
+```
+
+### Stages
+```php
+// Get all stages
+$pipedrive->getStages();
+
+// Get stage by ID
+$pipedrive->getStage(70);
+
+// Returns stages for provided pipeline
+$pipedrive->getStagesByPipelineId(1);
 ```
 
 ## Development
