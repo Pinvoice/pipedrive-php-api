@@ -10,16 +10,16 @@ Status
 
 API | Implementation | Documentation
 --- | ------------- | -------------------
-Activities    | [X](#) | [X](#)
-Deals         | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Deals.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#deals)
-Email         | [X](#) | [X](#)
-Files         | [X](#) | [X](#)
-Notes         | [X](#) | [X](#)
-Organisations | [X](#) | [X](#)
-Persons       | [X](#) | [X](#)
-Pipelines     | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Pipelines.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#pipelines)
-Products      | [X](#) | [X](#)
-Stages        | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Stages.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#stages)
+[Activities](https://developers.pipedrive.com/v1#methods-Activities)       | [X](#) | [X](#)
+[Deals](https://developers.pipedrive.com/v1#methods-Deals)                 | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Deals.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#deals)
+[Email](https://developers.pipedrive.com/v1#methods-EmailMessages)         | [X](#) | [X](#)
+[Files](https://developers.pipedrive.com/v1#methods-Files)                 | [X](#) | [X](#)
+[Notes](https://developers.pipedrive.com/v1#methods-Notes)                 | [X](#) | [X](#)
+[Organizations](https://developers.pipedrive.com/v1#methods-Organizations) | [X](#) | [X](#)
+[Persons](https://developers.pipedrive.com/v1#methods-Persons)             | [X](#) | [X](#)
+[Pipelines](https://developers.pipedrive.com/v1#methods-Pipelines)         | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Pipelines.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#pipelines)
+[Products](https://developers.pipedrive.com/v1#methods-Products)           | [X](#) | [X](#)
+[Stages](https://developers.pipedrive.com/v1#methods-Stages)               | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Stages.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#stages)
 
 √ = Complete  
 P = Partial  
