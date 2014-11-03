@@ -1,13 +1,8 @@
 <?php
 
 namespace Pinvoice\Pipedrive;
+use Pinvoice\Pipedrive\HTTP as HTTP;
 
-// Require Composer packages
-require_once ('vendor/autoload.php');
-
-/**
- * The API class is the main class and communicates with Pipedrive.
- */
 class API {
 
 	/**
@@ -26,7 +21,7 @@ class API {
 	 * The available API classes (configurable).
 	 * @var array
 	 */
-	private static $classes = array('Pipelines', 'Stages', 'Deals');
+	private static $classes = array('Deals', 'DealFields', 'Pipelines', 'Stages');
 
 	/**
 	 * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
@@ -98,85 +93,6 @@ class API {
 		} else {
 			return $data->data;
 		}
-	}
-
-	/**
-	 * HTTP GET wrapper for Curl.
-	 * For requests without additional query parameters.
-	 *
-	 * @param string $url URL to GET request to.
-	 *
-	 * @return mixed Response data.
-	 */
-	public static function http_get($url) {
-		$curl = new \Curl\Curl();
-		$curl->get(self::ENDPOINT . $url . '?api_token=' . self::getToken());
-		$curl->close();
-
-		return json_decode($curl->response);
-	}
-
-	/**
-	 * HTTP GET wrapper for Curl.
-	 * For requests with additional query paramters.
-	 *
-	 * @param string $url URL to GET request to.
-	 *
-	 * @return mixed Response data.
-	 */
-	public static function http_get_with_params($url) {
-		$curl = new \Curl\Curl();
-		$curl->get(self::ENDPOINT . $url . '&api_token=' . self::getToken());
-		$curl->close();
-
-		return json_decode($curl->response);
-	}
-
-	/**
-	 * HTTP POST wrapper for Curl.
-	 *
-	 * @param string $url URL to POST request to.
-	 * @param array $args POST data.
-	 *
-	 * @return mixed Response data.
-	 */
-	public static function http_post($url, array $args = array()) {
-		$curl = new \Curl\Curl();
-		$curl->post(self::ENDPOINT . $url . '?api_token=' . self::getToken(), $args);
-		$curl->close();
-
-		return json_decode($curl->response);
-	}
-
-	/**
-	 * Function to build the query string.
-	 * Will check which keys from $args are in $accepted_params, and build a query string from the key/val pairs.
-	 *
-	 * @param array $args Array of parameters (key,value).
-	 * @param array $accepted_params Accepted parameter keys.
-	 *
-	 * @throws Exception if param is not in accepted params.
-	 *
-	 * @return string Query string for HTTP request.
-	 */
-	public static function build_query_string($args, $accepted_params) {
-		$query_string = "";
-		$first = true;
-
-		foreach ($args as $key => $val) {
-			if (in_array($key, $accepted_params)) {
-				if ($first) {
-					$query_string = $query_string . $key . '=' . $val;
-				} else {
-					$query_string = $query_string . '&' . $key . '=' . $val;
-				}
-				$first = false;
-			} else {
-				throw new \Exception("Param '" . $key . "' does not exist in function " . debug_backtrace()[1]['function'] . ".");
-			}
-		}
-
-		return $query_string;
 	}
 
 }

@@ -2,52 +2,52 @@
 
 namespace Pinvoice\Pipedrive;
 
-/**
- * All functions for the Stage object in Pipedrive.
- */
-class Stages {
+class Stages extends APIObject {
 
 	/**
-	 * Get all stages
+	 * Get all stages.
+	 *
+	 * HTTP GET /stages
 	 *
 	 * @return array Returns data about all stages
 	 */
 	public static function getStages() {
 
-		// GET /stages
-		$data = API::http_get('/stages');
+		$data = HTTP::get('/stages');
 
 		return API::safe_return($data);
 	}
 
 	/**
-	 * Get stage
+	 * Get stage.
+	 *
+	 * HTTP GET /stages/1
 	 *
 	 * @param int $stage_id ID of stage to get
-	 *
 	 * @return array Returns data about a specific stage
 	 */
 	public static function getStage($stage_id) {
 
-		// GET /stages/1
-		$data = API::http_get('/stages/' . $stage_id);
+		$data = HTTP::get('/stages/' . $stage_id);
 
 		return API::safe_return($data);
 	}
 
 	/**
-	 * Get all stages for pipeline
+	 * Get all stages for pipeline.
+	 *
+	 * HTTP GET /stages/?pipeline_id=1
 	 *
 	 * @param int $pipeline_id ID of the pipeline to fetch stages for
-	 *
 	 * @return array Returns stages for provided pipeline
 	 */
 	public static function getStagesByPipelineId($pipeline_id) {
 
-		// GET /stages/?pipeline_id=1
-
-		// TODO: Disallow unexpected behaviour: If omitted, stages for all pipelines will be fetched.
-		$data = API::http_get_with_params('/stages?pipeline_id=' . $pipeline_id);
+		if (is_numeric($pipeline_id)) {
+			$data = HTTP::getWithParams('/stages?pipeline_id=' . $pipeline_id);
+		} else {
+			throw new \Exception("Param pipeline_id should be numeric");
+		}
 
 		return API::safe_return($data);
 	}
