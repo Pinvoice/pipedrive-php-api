@@ -14,7 +14,7 @@ class Pipelines extends APIObject
     public static function getPipelines()
     {
         $data = HTTP::get('/pipelines');
-        return $this->safeReturn($data);
+        return self::safeReturn($data);
     }
 
     /**
@@ -28,7 +28,7 @@ class Pipelines extends APIObject
     public static function getPipeline($id)
     {
         $data = HTTP::get('/pipelines/' . $id);
-        return $this->safeReturn($data);
+        return self::safeReturn($data);
     }
 
     /**
@@ -41,7 +41,7 @@ class Pipelines extends APIObject
     {
         // TODO: Arguments in doc and validation...
         $data = HTTP::post('/pipelines', $args);
-        return $this->safeReturn($data);
+        return self::safeReturn($data);
     }
 
 }
