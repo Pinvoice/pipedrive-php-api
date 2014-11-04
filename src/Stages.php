@@ -45,7 +45,7 @@ class Stages extends APIObject
         if (is_numeric($pipeline_id)) {
             $data = HTTP::getWithParams('/stages?pipeline_id=' . $pipeline_id);
         } else {
-            throw new \Exception("Param pipeline_id should be numeric");
+            throw new \Exception("Param pipeline_id should be numeric.");
         }
         return self::safeReturn($data);
     }

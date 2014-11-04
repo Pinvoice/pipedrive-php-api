@@ -15,7 +15,7 @@ abstract class APIObject
     protected static function safeReturn($data)
     {
         if (!$data->success) {
-            throw new \Exception(isset($data->error) ? $data->error : "Unknown error");
+            throw new \Exception(isset($data->error) ? $data->error : "Unknown error.");
         } else {
             return $data->data;
         }
