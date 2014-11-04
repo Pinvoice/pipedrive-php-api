@@ -47,7 +47,6 @@ class Deals extends APIObject
     public static function getDeal($deal_id)
     {
         $data = HTTP::get('/deals/' . $deal_id);
-
         return API::safe_return($data);
     }
 
@@ -75,5 +74,3 @@ class Deals extends APIObject
         return API::safe_return($data);
     }
 }
-
-?>

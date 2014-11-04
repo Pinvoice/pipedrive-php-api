@@ -50,5 +50,3 @@ class Stages extends APIObject
         return API::safe_return($data);
     }
 }
-
-?>

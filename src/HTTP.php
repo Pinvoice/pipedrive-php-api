@@ -72,7 +72,7 @@ class HTTP
         foreach ($args as $key => $val) {
             if (in_array($key, $accepted_params)) {
                 if ($first) {
-                    $query_string .=  $key . '=' . $val;
+                    $query_string .= $key . '=' . $val;
                 } else {
                     $query_string .= '&' . $key . '=' . $val;
                 }

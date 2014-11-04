@@ -87,7 +87,7 @@ class API
      * @throws \Exception if $data->success isn't there.
      * @return mixed Return data.
      */
-    public static function safe_return($data)
+    public static function safeReturn($data)
     {
         if (!$data->success) {
             throw new \Exception(isset($data->error) ? $data->error : "Unknown error");
@@ -96,5 +96,3 @@ class API
         }
     }
 }
-
-?>

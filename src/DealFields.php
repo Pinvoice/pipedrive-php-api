@@ -18,5 +18,3 @@ class DealFields extends APIObject
     }
 
 }
-
-?>
