@@ -22,10 +22,6 @@ API | Implementation | Documentation
 [Products](https://developers.pipedrive.com/v1#methods-Products)           | [X](#) | [X](#)
 [Stages](https://developers.pipedrive.com/v1#methods-Stages)               | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Stages.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#stages)
 
-√ = Complete  
-P = Partial  
-X = Nothing  
-
 ## Installation
 Add the package as a dependency in your `composer.json` file:
 
