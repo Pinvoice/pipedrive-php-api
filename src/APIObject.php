@@ -2,6 +2,7 @@
 
 namespace Pinvoice\Pipedrive;
 
-class APIObject {
+class APIObject
+{
 
 }
