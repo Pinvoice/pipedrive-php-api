@@ -74,20 +74,6 @@ $pipedrive->getDealsByName(array(
 ));
 ```
 
-### Pipelines
-```php
-// Get all pipelines
-$pipedrive->getPipelines();
-
-// Get pipeline by ID
-$pipedrive->getPipeline(1);
-
-// Add pipeline with name
-$pipedrive->addPipeline(array(
-  'name' => 'My happy little pipeline'
-));
-```
-
 ### DealFields
 ```php
 // Get all deal fields
@@ -105,6 +91,20 @@ $deals = $pipedrive->getDeals();
 foreach ($deals as $deal) {
     $pipedrive->translateDealFieldKeys($deal);
 }
+```
+
+### Pipelines
+```php
+// Get all pipelines
+$pipedrive->getPipelines();
+
+// Get pipeline by ID
+$pipedrive->getPipeline(1);
+
+// Add pipeline with name
+$pipedrive->addPipeline(array(
+  'name' => 'My happy little pipeline'
+));
 ```
 
 ### Stages
