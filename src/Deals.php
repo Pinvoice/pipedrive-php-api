@@ -21,7 +21,6 @@ class Deals extends APIObject
      */
     public static function getDeals($args = array())
     {
-
         $accepted_params = array(
             'filter_id', 'start', 'limit', 'sort_by', 'sort_mode', 'owned_by_you',
         );
@@ -47,7 +46,6 @@ class Deals extends APIObject
      */
     public static function getDeal($deal_id)
     {
-
         $data = HTTP::get('/deals/' . $deal_id);
 
         return API::safe_return($data);
@@ -66,7 +64,6 @@ class Deals extends APIObject
      */
     public static function getDealsByName(array $args)
     {
-
         $accepted_params = array(
             'term', 'person_id', 'org_id',
         );

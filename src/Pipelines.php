@@ -7,29 +7,27 @@ class Pipelines extends APIObject
     /**
      * Get Pipelines.
      *
+     * HTTP GET /pipelines
+     *
      * @return array Array of pipelines
      */
     public static function getPipelines()
     {
-
-        // GET /pipelines
-        $data = MyHTTP::get('/pipelines');
-
+        $data = HTTP::get('/pipelines');
         return API::safe_return($data);
     }
 
     /**
      * Get Pipeline by ID.
      *
+     * HTTP GET /pipelines/{id}
+     *
      * @param int $id ID of Pipeline to get
      * @return object Single pipeline
      */
     public static function getPipeline($id)
     {
-
-        // GET /pipelines/{id}
-        $data = MyHTTP::get('/pipelines/' . $id);
-
+        $data = HTTP::get('/pipelines/' . $id);
         return API::safe_return($data);
     }
 
@@ -41,11 +39,8 @@ class Pipelines extends APIObject
      */
     public static function addPipeline(array $args)
     {
-
         // TODO: Arguments in doc and validation...
-
-        $data = MyHTTP::post('/pipelines', $args);
-
+        $data = HTTP::post('/pipelines', $args);
         return API::safe_return($data);
     }
 

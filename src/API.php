@@ -60,30 +60,13 @@ class API
     }
 
     /**
-     * Handles errors in Pipedrive API requests.
-     *
-     * @param array $data JSON object.
-     *
-     * @return mixed Return data.
-     */
-    public static function safe_return($data)
-    {
-        if (!$data->success) {
-            throw new \Exception(isset($data->error) ? $data->error : "Unknown error");
-        } else {
-            return $data->data;
-        }
-    }
-
-    /**
      * Function used to allow dynamic methods like '$instance_of_API->getPipelines()'.
      * Only uses registered classes in self::$classes array (!).
      *
      * @param string $name Name of method to be called.
      * @param array $arguments Arguments to calll method with.
      *
-     * @throws Exception if method does not exist.
-     *
+     * @throws \Exception if method does not exist.
      * @return mixed Returns method if method exists.
      */
     public function __call($name, $arguments)
@@ -96,6 +79,22 @@ class API
         throw new \Exception("Method '" . $name . "' does not exist.");
     }
 
+    /**
+     * Handles errors in Pipedrive API requests.
+     *
+     * @param array $data JSON object.
+     *
+     * @throws \Exception if $data->success isn't there.
+     * @return mixed Return data.
+     */
+    public static function safe_return($data)
+    {
+        if (!$data->success) {
+            throw new \Exception(isset($data->error) ? $data->error : "Unknown error");
+        } else {
+            return $data->data;
+        }
+    }
 }
 
 ?>

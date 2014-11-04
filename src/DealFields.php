@@ -13,9 +13,7 @@ class DealFields extends APIObject
      */
     public static function getDealFields()
     {
-
         $data = HTTP::get('/dealFields');
-
         return API::safe_return($data);
     }
 

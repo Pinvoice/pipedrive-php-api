@@ -2,6 +2,8 @@
 
 namespace Pinvoice\Pipedrive;
 
+use Curl\Curl;
+
 class HTTP
 {
     /**
@@ -13,7 +15,7 @@ class HTTP
      */
     public static function get($url)
     {
-        $curl = new \Curl\Curl();
+        $curl = new Curl();
         $curl->get(API::ENDPOINT . $url . '?api_token=' . API::getToken());
         $curl->close();
 
@@ -29,7 +31,7 @@ class HTTP
      */
     public static function getWithParams($url)
     {
-        $curl = new \Curl\Curl();
+        $curl = new Curl();
         $curl->get(API::ENDPOINT . $url . '&api_token=' . API::getToken());
         $curl->close();
 
@@ -45,7 +47,7 @@ class HTTP
      */
     public static function post($url, array $args = array())
     {
-        $curl = new \Curl\Curl();
+        $curl = new Curl();
         $curl->post(API::ENDPOINT . $url . '?api_token=' . API::getToken(), $args);
         $curl->close();
 
@@ -59,8 +61,7 @@ class HTTP
      * @param array $args Array of parameters (key,value).
      * @param array $accepted_params Accepted parameter keys.
      *
-     * @throws Exception if param is not in accepted params.
-     *
+     * @throws \Exception if param is not in accepted params.
      * @return string Query string for HTTP request.
      */
     public static function buildQueryString($args, $accepted_params)
@@ -71,9 +72,9 @@ class HTTP
         foreach ($args as $key => $val) {
             if (in_array($key, $accepted_params)) {
                 if ($first) {
-                    $query_string = $query_string . $key . '=' . $val;
+                    $query_string .=  $key . '=' . $val;
                 } else {
-                    $query_string = $query_string . '&' . $key . '=' . $val;
+                    $query_string .= '&' . $key . '=' . $val;
                 }
                 $first = false;
             } else {
