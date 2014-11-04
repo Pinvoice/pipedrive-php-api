@@ -6,4 +6,3 @@ vendor/
 run.php
 
 composer.lock
-sftp-config.json
