@@ -118,17 +118,3 @@ $pipedrive->getStage(70);
 // Returns stages for provided pipeline
 $pipedrive->getStagesByPipelineId(1);
 ```
-
-## Development
-
-Run `composer install` in this directory. 
-
-### Running tests
-To start PHPUnit tests run: 
-`vendor/bin/phpunit test`
-
-To run tests at each commit, add Git hook:  
-```
-cp hooks/pre-commit .git/hooks
-chmod 777 .git/hooks/pre-commit
-```
