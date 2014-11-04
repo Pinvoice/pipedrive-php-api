@@ -1,6 +1,8 @@
 <?php
 
-namespace Pinvoice\Pipedrive;
+namespace Pinvoice\Pipedrive\APIObjects;
+
+use Pinvoice\Pipedrive\HTTP;
 
 class Pipelines extends APIObject
 {

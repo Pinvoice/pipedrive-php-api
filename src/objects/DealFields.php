@@ -1,6 +1,8 @@
 <?php
 
-namespace Pinvoice\Pipedrive;
+namespace Pinvoice\Pipedrive\APIObjects;
+
+use Pinvoice\Pipedrive\HTTP;
 
 class DealFields extends APIObject
 {
@@ -14,7 +16,7 @@ class DealFields extends APIObject
     public static function getDealFields()
     {
         $data = HTTP::get('/dealFields');
-        return $this->safeReturn($data);
+        return self::safeReturn($data);
     }
 
 }

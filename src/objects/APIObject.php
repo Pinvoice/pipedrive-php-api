@@ -1,6 +1,6 @@
 <?php
 
-namespace Pinvoice\Pipedrive;
+namespace Pinvoice\Pipedrive\APIObjects;
 
 abstract class APIObject
 {

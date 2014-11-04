@@ -1,6 +1,8 @@
 <?php
 
-namespace Pinvoice\Pipedrive;
+namespace Pinvoice\Pipedrive\APIObjects;
+
+use Pinvoice\Pipedrive\HTTP;
 
 class Deals extends APIObject
 {
@@ -33,7 +35,7 @@ class Deals extends APIObject
             $data = HTTP::get('/deals');
         }
 
-        return $this->safeReturn($data);
+        return self::safeReturn($data);
     }
 
     /**
@@ -47,7 +49,7 @@ class Deals extends APIObject
     public static function getDeal($deal_id)
     {
         $data = HTTP::get('/deals/' . $deal_id);
-        return $this->safeReturn($data);
+        return self::safeReturn($data);
     }
 
     /**
@@ -71,6 +73,6 @@ class Deals extends APIObject
 
         $data = HTTP::getWithParams('/deals/find?' . $query_string);
 
-        return $this->safeReturn($data);
+        return self::safeReturn($data);
     }
 }

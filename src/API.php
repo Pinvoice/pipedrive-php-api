@@ -75,8 +75,12 @@ class API
     public function __call($name, $arguments)
     {
         foreach (self::$classes as $class) {
-            if (method_exists(__NAMESPACE__ . '\\' . $class, $name)) {
-                return call_user_func_array(__NAMESPACE__ . '\\' . $class . '::' . $name, $arguments);
+            if (method_exists(__NAMESPACE__ . '\\APIObjects\\' . $class, $name)) {
+                return call_user_func_array(
+                    __NAMESPACE__ . '\\APIObjects\\' . $class . '::' . $name,
+
+                    $arguments
+                );
             }
         }
         throw new \Exception("Method '" . $name . "' does not exist.");

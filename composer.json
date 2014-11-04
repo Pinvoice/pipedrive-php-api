@@ -13,7 +13,8 @@
     }],
     "autoload": {
         "psr-4": {
-            "Pinvoice\\Pipedrive\\": "src/"
+            "Pinvoice\\Pipedrive\\": "src/",
+            "Pinvoice\\Pipedrive\\APIObjects\\": "src/objects/"
         }
     }
 }
