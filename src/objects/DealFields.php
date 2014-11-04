@@ -19,4 +19,23 @@ class DealFields extends APIObject
         return self::safeReturn($data);
     }
 
+    /**
+     * Translate DealField key to text.
+     *
+     * @param string $key Key of Deal field.
+     * @return string DealField text that belongs to key.
+     */
+    public static function getDealFieldByKey($key)
+    {
+        $dealfields = self::getDealFields();
+
+        foreach ($dealfields as $dealfield) {
+            if ($dealfield->key == $key) {
+                return $dealfield;
+            }
+        }
+
+        return null;
+    }
+
 }
