@@ -8,16 +8,19 @@ class API
      * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
      */
     const ENDPOINT = 'http://api.pipedrive.com/v1/';
+
     /**
      * The current API instance.
      * @var object
      */
     private static $instance = null;
+
     /**
      * The Pipedrive API token.
      * @var string
      */
     private static $token = null;
+
     /**
      * The available API classes (configurable).
      * @var array
@@ -79,20 +82,4 @@ class API
         throw new \Exception("Method '" . $name . "' does not exist.");
     }
 
-    /**
-     * Handles errors in Pipedrive API requests.
-     *
-     * @param array $data JSON object.
-     *
-     * @throws \Exception if $data->success isn't there.
-     * @return mixed Return data.
-     */
-    public static function safeReturn($data)
-    {
-        if (!$data->success) {
-            throw new \Exception(isset($data->error) ? $data->error : "Unknown error");
-        } else {
-            return $data->data;
-        }
-    }
 }

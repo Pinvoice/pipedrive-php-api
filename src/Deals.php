@@ -33,7 +33,7 @@ class Deals extends APIObject
             $data = HTTP::get('/deals');
         }
 
-        return API::safe_return($data);
+        return $this->safeReturn($data);
     }
 
     /**
@@ -47,7 +47,7 @@ class Deals extends APIObject
     public static function getDeal($deal_id)
     {
         $data = HTTP::get('/deals/' . $deal_id);
-        return API::safe_return($data);
+        return $this->safeReturn($data);
     }
 
     /**
@@ -71,6 +71,6 @@ class Deals extends APIObject
 
         $data = HTTP::getWithParams('/deals/find?' . $query_string);
 
-        return API::safe_return($data);
+        return $this->safeReturn($data);
     }
 }
