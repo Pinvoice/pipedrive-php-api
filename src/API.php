@@ -1,7 +1,6 @@
 <?php
 
 namespace Pinvoice\Pipedrive;
-use Pinvoice\Pipedrive\HTTP as HTTP;
 
 class API {
 
