@@ -11,15 +11,16 @@ Status
 API | Implementation | Documentation
 --- | ------------- | -------------------
 [Activities](https://developers.pipedrive.com/v1#methods-Activities)       | [X](#) | [X](#)
-[Deals](https://developers.pipedrive.com/v1#methods-Deals)                 | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Deals.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#deals)
+[Deals](https://developers.pipedrive.com/v1#methods-Deals)                 | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Deals.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#deals)
+[DealFields](https://developers.pipedrive.com/v1#methods-DealFields)                 | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/DealFields.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#dealfields)
 [Email](https://developers.pipedrive.com/v1#methods-EmailMessages)         | [X](#) | [X](#)
 [Files](https://developers.pipedrive.com/v1#methods-Files)                 | [X](#) | [X](#)
 [Notes](https://developers.pipedrive.com/v1#methods-Notes)                 | [X](#) | [X](#)
 [Organizations](https://developers.pipedrive.com/v1#methods-Organizations) | [X](#) | [X](#)
 [Persons](https://developers.pipedrive.com/v1#methods-Persons)             | [X](#) | [X](#)
-[Pipelines](https://developers.pipedrive.com/v1#methods-Pipelines)         | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Pipelines.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#pipelines)
+[Pipelines](https://developers.pipedrive.com/v1#methods-Pipelines)         | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Pipelines.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#pipelines)
 [Products](https://developers.pipedrive.com/v1#methods-Products)           | [X](#) | [X](#)
-[Stages](https://developers.pipedrive.com/v1#methods-Stages)               | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/Stages.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#stages)
+[Stages](https://developers.pipedrive.com/v1#methods-Stages)               | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Stages.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#stages)
 
 √ = Complete  
 P = Partial  
@@ -85,6 +86,16 @@ $pipedrive->getPipeline(1);
 $pipedrive->addPipeline(array(
   'name' => 'My happy little pipeline'
 ));
+```
+
+### DealFields
+```php
+// Get all deal fields
+$pipedrive->getDealFields();
+
+// Get deal field object by key
+$field = $pipedrive->getDealFieldByKey('109204dc0283d5ced6c0438f8b7a220ecac9238d');
+$field->name; // name of deal field
 ```
 
 ### Stages
