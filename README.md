@@ -91,11 +91,20 @@ $pipedrive->addPipeline(array(
 ### DealFields
 ```php
 // Get all deal fields
-$pipedrive->getDealFields();
+$dealfields = $pipedrive->getDealFields();
 
-// Get deal field object by key
-$field = $pipedrive->getDealFieldByKey('109204dc0283d5ced6c0438f8b7a220ecac9238d');
+// Get deal field object by key (from DealFields set)
+$field = $pipedrive->getDealFieldByKey('109204dc0283d5ced6c0438f8b7a220ecac9238d', $dealfields);
 $field->name; // name of deal field
+
+// Translate custom fields in Deal from key to text
+// For example, this will replace: 
+// $deal->109204dc0283d5ced6c0438f8b7a220ecac9238d with $deal->test 
+$deals = $pipedrive->getDeals();
+
+foreach ($deals as $deal) {
+    $pipedrive->translateDealFieldKeys($deal);
+}
 ```
 
 ### Stages
