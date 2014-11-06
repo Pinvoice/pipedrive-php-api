@@ -25,7 +25,7 @@ class API
      * The available API classes (configurable).
      * @var array
      */
-    private static $classes = array('Deals', 'DealFields', 'Pipelines', 'Stages');
+    private static $classes = array('Deals', 'DealFields', 'Persons', 'PersonFields', 'Pipelines', 'Stages');
 
     /**
      * Returns singleton class instance.
@@ -83,5 +83,4 @@ class API
         }
         throw new \Exception("Method '" . $name . "' does not exist.");
     }
-
 }

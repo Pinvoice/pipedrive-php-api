@@ -12,12 +12,13 @@ API | Implementation | Documentation
 --- | ------------- | -------------------
 [Activities](https://developers.pipedrive.com/v1#methods-Activities)       | [X](#) | [X](#)
 [Deals](https://developers.pipedrive.com/v1#methods-Deals)                 | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Deals.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#deals)
-[DealFields](https://developers.pipedrive.com/v1#methods-DealFields)                 | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/DealFields.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#dealfields)
+[DealFields](https://developers.pipedrive.com/v1#methods-DealFields)       | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/DealFields.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#dealfields)
 [Email](https://developers.pipedrive.com/v1#methods-EmailMessages)         | [X](#) | [X](#)
 [Files](https://developers.pipedrive.com/v1#methods-Files)                 | [X](#) | [X](#)
 [Notes](https://developers.pipedrive.com/v1#methods-Notes)                 | [X](#) | [X](#)
 [Organizations](https://developers.pipedrive.com/v1#methods-Organizations) | [X](#) | [X](#)
-[Persons](https://developers.pipedrive.com/v1#methods-Persons)             | [X](#) | [X](#)
+[Persons](https://developers.pipedrive.com/v1#methods-Persons)             | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Persons.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#persons)
+[PersonFields](https://developers.pipedrive.com/v1#methods-PersonFields)   | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/PersonFields.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#personfields)
 [Pipelines](https://developers.pipedrive.com/v1#methods-Pipelines)         | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Pipelines.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#pipelines)
 [Products](https://developers.pipedrive.com/v1#methods-Products)           | [X](#) | [X](#)
 [Stages](https://developers.pipedrive.com/v1#methods-Stages)               | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Stages.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#stages)
@@ -88,6 +89,56 @@ $deals = $pipedrive->getDeals();
 
 foreach ($deals as $deal) {
     $pipedrive->translateDealFieldKeys($deal);
+}
+```
+
+### Persons
+```php
+// Get all persons
+$pipedrive->getPersons();
+
+// Get all persons, with optional filters
+$pipedrive->getPersons(array(
+  'filter_id' => 12,
+  'start' => 3,
+  'limit' => 1,
+  'sort_by' => "first_name",
+  'sort_mode' => "asc"
+));
+
+// Get person by ID
+$pipedrive->getPerson(70);
+
+// Find person by name
+$pipedrive->getPersonsByName(array(
+  'term' => "Junior"
+));
+
+// Find persons by name, with optional filters
+$pipedrive->getPersonsByName(array(
+  'term' => "Junior",
+  'person_id' => 1,
+  'org_id' => 2,
+  'start' => 1,
+  'limit' => 1,
+  'search_by_email' => false
+));
+```
+
+### PersonFields
+```php
+// Get all person fields
+$personfields = $pipedrive->getPersonFields();
+
+// Get person field object by key (from person fields set)
+$field = $pipedrive->getPersonFieldByKey('109204dc0283d5ced6c0438f8b7a220ecac9238d', $personfields);
+
+// Translate custom fields in Person object(s), keys to text
+// For example, this will replace $person->109204dc0283d5ced6c0438f8b7a220ecac9238d with $person->test 
+$persons = $pipedrive->getPersons();
+
+foreach ($persons as $person) {
+    $pipedrive->translatePersonFieldKeys($person);
 }
 ```
 
