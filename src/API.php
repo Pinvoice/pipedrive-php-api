@@ -2,6 +2,14 @@
 
 namespace Pinvoice\Pipedrive;
 
+use Pinvoice\Pipedrive\APIObjects\Deals;
+use Pinvoice\Pipedrive\APIObjects\DealFields;
+use Pinvoice\Pipedrive\APIObjects\Persons;
+use Pinvoice\Pipedrive\APIObjects\PersonFields;
+use Pinvoice\Pipedrive\APIObjects\Pipelines;
+use Pinvoice\Pipedrive\APIObjects\Stages;
+
+
 class API
 {
     /**
@@ -75,9 +83,9 @@ class API
     public function __call($name, $arguments)
     {
         foreach (self::$classes as $class) {
-            if (method_exists(__NAMESPACE__ . '\\APIObjects\\' . $class, $name)) {
+            if (method_exists(__NAMESPACE__ . '\APIObjects\\' . $class, $name)) {
                 return call_user_func_array(
-                    __NAMESPACE__ . '\\APIObjects\\' . $class . '::' . $name, $arguments
+                    __NAMESPACE__ . '\APIObjects\\' . $class . '::' . $name, $arguments
                 );
             }
         }
