@@ -7,37 +7,6 @@ use Pinvoice\Pipedrive\HTTP;
 class PersonFields extends APIObject
 {
     /**
-     * Get all person fields.
-     *
-     * HTTP GET /personFields
-     *
-     * @return array Array of all person field objects.
-     */
-    public static function getPersonFields()
-    {
-        $data = HTTP::get('/personFields');
-        return self::safeReturn($data);
-    }
-
-    /**
-     * Translate PersonField key to text.
-     *
-     * @param string $key Key of Person field.
-     * @param object $personfields PersonFields to look through (output of getPersonFields()).
-     * @return string PersonField text that belongs to key.
-     */
-    public static function getPersonFieldByKey($key, $personfields)
-    {
-        foreach ($personfields as $personfield) {
-            if ($personfield->key == $key) {
-                return $personfield;
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * Translate all custom Person fields in Person.
      *
      * Get PersonFields from getPersonFields() (or somewhere else).
@@ -65,6 +34,19 @@ class PersonFields extends APIObject
     }
 
     /**
+     * Get all person fields.
+     *
+     * HTTP GET /personFields
+     *
+     * @return array Array of all person field objects.
+     */
+    public static function getPersonFields()
+    {
+        $data = HTTP::get('/personFields');
+        return self::safeReturn($data);
+    }
+
+    /**
      * Checks if Person key is a custom Person field.
      *
      * Checks for: 40 characters, loweralpha + numeric.
@@ -75,6 +57,24 @@ class PersonFields extends APIObject
     private static function isCustomPersonField($key)
     {
         return preg_match('/^[a-f0-9]{40}$/', $key);
+    }
+
+    /**
+     * Translate PersonField key to text.
+     *
+     * @param string $key Key of Person field.
+     * @param object $personfields PersonFields to look through (output of getPersonFields()).
+     * @return string PersonField text that belongs to key.
+     */
+    public static function getPersonFieldByKey($key, $personfields)
+    {
+        foreach ($personfields as $personfield) {
+            if ($personfield->key == $key) {
+                return $personfield;
+            }
+        }
+
+        return null;
     }
 
 }

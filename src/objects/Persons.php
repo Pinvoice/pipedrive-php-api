@@ -6,7 +6,7 @@ use Pinvoice\Pipedrive\HTTP;
 
 class Persons extends APIObject
 {
-	/**
+    /**
      * Get all persons.
      *
      * HTTP GET /persons
