@@ -7,37 +7,6 @@ use Pinvoice\Pipedrive\HTTP;
 class DealFields extends APIObject
 {
     /**
-     * Get all deal fields.
-     *
-     * HTTP GET /dealFields
-     *
-     * @return array Array of all deal field objects.
-     */
-    public static function getDealFields()
-    {
-        $data = HTTP::get('/dealFields');
-        return self::safeReturn($data);
-    }
-
-    /**
-     * Translate DealField key to text.
-     *
-     * @param string $key Key of Deal field.
-     * @param object $dealfields DealFields to look through (output of getDealFields()).
-     * @return string DealField text that belongs to key.
-     */
-    public static function getDealFieldByKey($key, $dealfields)
-    {
-        foreach ($dealfields as $dealfield) {
-            if ($dealfield->key == $key) {
-                return $dealfield;
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * Translate all custom Deal fields in Deal.
      *
      * Get DealFields from getDealFields() (or somewhere else).
@@ -65,6 +34,19 @@ class DealFields extends APIObject
     }
 
     /**
+     * Get all deal fields.
+     *
+     * HTTP GET /dealFields
+     *
+     * @return array Array of all deal field objects.
+     */
+    public static function getDealFields()
+    {
+        $data = HTTP::get('/dealFields');
+        return self::safeReturn($data);
+    }
+
+    /**
      * Checks if Deal key is a custom Deal field.
      *
      * Checks for: 40 characters, loweralpha + numeric.
@@ -75,6 +57,24 @@ class DealFields extends APIObject
     private static function isCustomDealField($key)
     {
         return preg_match('/^[a-f0-9]{40}$/', $key);
+    }
+
+    /**
+     * Translate DealField key to text.
+     *
+     * @param string $key Key of Deal field.
+     * @param object $dealfields DealFields to look through (output of getDealFields()).
+     * @return string DealField text that belongs to key.
+     */
+    public static function getDealFieldByKey($key, $dealfields)
+    {
+        foreach ($dealfields as $dealfield) {
+            if ($dealfield->key == $key) {
+                return $dealfield;
+            }
+        }
+
+        return null;
     }
 
 }
