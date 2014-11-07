@@ -85,7 +85,7 @@ class API
         foreach (self::$classes as $class) {
             if (method_exists(__NAMESPACE__ . '\APIObjects\\' . $class, $name)) {
                 return call_user_func_array(
-                    __NAMESPACE__ . '\APIObjects\\' . $class . '::' . $name, $arguments
+                    array(__NAMESPACE__ . '\APIObjects\\' . $class, $name), $arguments
                 );
             }
         }
