@@ -2,14 +2,6 @@
 
 namespace Pinvoice\Pipedrive;
 
-use Pinvoice\Pipedrive\APIObjects\Deals;
-use Pinvoice\Pipedrive\APIObjects\DealFields;
-use Pinvoice\Pipedrive\APIObjects\Persons;
-use Pinvoice\Pipedrive\APIObjects\PersonFields;
-use Pinvoice\Pipedrive\APIObjects\Pipelines;
-use Pinvoice\Pipedrive\APIObjects\Stages;
-
-
 class API
 {
     /**
