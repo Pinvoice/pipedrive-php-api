@@ -5,6 +5,7 @@ namespace Pinvoice\Pipedrive\APIObjects;
 use Pinvoice\Pipedrive\HTTP;
 
 class PersonFields extends APIObject {
+
 	/**
 	 * [__construct description]
 	 * @param [type] $http [description]

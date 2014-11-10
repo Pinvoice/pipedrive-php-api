@@ -5,6 +5,7 @@ namespace Pinvoice\Pipedrive\APIObjects;
 use Pinvoice\Pipedrive\HTTP;
 
 class Stages extends APIObject {
+
 	/**
 	 * [__construct description]
 	 * @param [type] $http [description]
@@ -55,4 +56,5 @@ class Stages extends APIObject {
 		}
 		return self::safeReturn($data);
 	}
+
 }

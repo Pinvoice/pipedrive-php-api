@@ -10,6 +10,7 @@ use Pinvoice\Pipedrive\APIObjects\Pipelines;
 use Pinvoice\Pipedrive\APIObjects\Stages;
 
 class API {
+
 	/**
 	 * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
 	 */
@@ -64,4 +65,5 @@ class API {
 		$response = $this->http->get('userSettings');
 		return $response->success;
 	}
+
 }

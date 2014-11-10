@@ -5,6 +5,7 @@ namespace Pinvoice\Pipedrive\APIObjects;
 use Pinvoice\Pipedrive\HTTP;
 
 class Persons extends APIObject {
+
 	/**
 	 * [__construct description]
 	 * @param [type] $http [description]
@@ -81,4 +82,5 @@ class Persons extends APIObject {
 
 		return self::safeReturn($data);
 	}
+
 }

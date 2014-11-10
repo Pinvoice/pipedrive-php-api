@@ -7,16 +7,15 @@ use Curl\Curl;
 class HTTP {
 
 	/**
-	 * [$token description]
-	 * @var [type]
-	 */
-	private $token;
-
-	/**
-	 * [$endpoint description]
-	 * @var [type]
+	 * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
 	 */
 	private $endpoint;
+
+	/**
+	 * The Pipedrive API token.
+	 * @var string
+	 */
+	private $token;
 
 	/**
 	 * [__construct description]

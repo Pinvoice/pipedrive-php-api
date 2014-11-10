@@ -5,6 +5,7 @@ namespace Pinvoice\Pipedrive\APIObjects;
 use Pinvoice\Pipedrive\HTTP;
 
 class DealFields extends APIObject {
+
 	/**
 	 * [__construct description]
 	 * @param [type] $http [description]
@@ -23,10 +24,11 @@ class DealFields extends APIObject {
 	 * Unset old one ($foo->3d76a21...).
 	 *
 	 * @param Deal $deal Deal object with key as custom Deal fields.
+	 * @param DealFields $dealfields Optional custom DealFields data.
 	 * @return Deal Deal object with text as custom Deal fields.
 	 */
-	public function translateDealFieldKeys($deal) {
-		$dealfields = self::getDealFields();
+	public function translateDealFieldKeys($deal, $dealfields = null) {
+		$dealfields = $this->getDealFields();
 
 		foreach ($deal as $key => $value) {
 			if ($this->isCustomDealField($key)) {
