@@ -2,85 +2,62 @@
 
 namespace Pinvoice\Pipedrive;
 
+use Pinvoice\Pipedrive\APIObjects\Deals;
+use Pinvoice\Pipedrive\APIObjects\DealFields;
+use Pinvoice\Pipedrive\APIObjects\Persons;
+use Pinvoice\Pipedrive\APIObjects\PersonFields;
+use Pinvoice\Pipedrive\APIObjects\Pipelines;
+use Pinvoice\Pipedrive\APIObjects\Stages;
+
 class API
 {
     /**
      * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
      */
-    const ENDPOINT = 'http://api.pipedrive.com/v1/';
-
-    /**
-     * The current API instance.
-     * @var object
-     */
-    private static $instance = null;
+    private $endpoint = 'http://api.pipedrive.com/v1/';
 
     /**
      * The Pipedrive API token.
      * @var string
      */
-    private static $token = null;
+    private $token = null;
 
     /**
-     * The available API classes (configurable).
-     * @var array
+     * The HTTP instance for HTTP requests.
+     * @var object
      */
-    private static $classes = array('Deals', 'DealFields', 'Persons', 'PersonFields', 'Pipelines', 'Stages');
+    private $http;
 
     /**
-     * Returns singleton class instance.
-     *
-     * @return object Pipedrive API instance.
+     * The APIObject instances.
+     * @var objects
      */
-    public static function getInstance()
-    {
-        if (self::$instance === null) {
-            self::$instance = new self;
-        }
-        return self::$instance;
-    }
+    public $deals;
+    public $dealfields;
+    public $persons;
+    public $personfields;
+    public $pipelines;
+    public $stages;
 
     /**
-     * Gets the API token.
-     *
-     * @return string API token
+     * [__construct description]
+     * @param [type] $token [description]
      */
-    public static function getToken()
-    {
-        return self::$token;
-    }
+    public function __construct($token) {
+        /**
+         * Initialize HTTP client.
+         */
+        $this->token = $token;
+        $this->http = new HTTP($this->token, $this->endpoint);
 
-    /**
-     * Sets the API token.
-     *
-     * @param string $token Pipedrive API token.
-     *
-     * @return void
-     */
-    public static function setToken($token)
-    {
-        self::$token = $token;
-    }
-
-    /**
-     * Function used to allow dynamic methods like '$instance_of_API->getPipelines()'.
-     * Only uses registered classes in self::$classes array (!).
-     *
-     * @param string $name Name of method to be called.
-     * @param array $arguments Arguments to calll method with.
-     *
-     * @throws \Exception if method does not exist.
-     * @return mixed Returns method if method exists.
-     */
-    public function __call($name, $arguments)
-    {
-        foreach (self::$classes as $class) {
-            if (method_exists(__NAMESPACE__ . '\APIObjects\\' . $class, $name)) {
-                return call_user_func_array(
-                    array(__NAMESPACE__ . '\APIObjects\\' . $class, $name), $arguments
-                );
-            }
-        }
-        throw new \Exception("Method '" . $name . "' does not exist.");
+        /**
+         * Initialize APIObjects
+         */
+        $this->deals        = new Deals($this->http);
+        $this->dealfields   = new DealFields($this->http);
+        $this->persons      = new Persons($this->http);
+        $this->personfields = new PersonFields($this->http);
+        $this->pipelines    = new Pipelines($this->http);
+        $this->stages       = new Stages($this->http);
     }
 }

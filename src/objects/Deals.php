@@ -7,6 +7,14 @@ use Pinvoice\Pipedrive\HTTP;
 class Deals extends APIObject
 {
     /**
+     * [__construct description]
+     * @param [type] $http [description]
+     */
+    public function __construct($http) {
+        parent::__construct($http);
+    }
+
+    /**
      * Get all deals.
      *
      * HTTP GET /deals
@@ -21,21 +29,21 @@ class Deals extends APIObject
      *
      * @return array Array of all deal objects.
      */
-    public static function getDeals($args = array())
+    public function getDeals($args = array())
     {
         $accepted_params = array(
             'filter_id', 'start', 'limit', 'sort_by', 'sort_mode', 'owned_by_you',
         );
 
-        $query_string = HTTP::buildQueryString($args, $accepted_params);
+        $query_string = $this->http->buildQueryString($args, $accepted_params);
 
         if (!empty($query_string)) {
-            $data = HTTP::getWithParams('/deals?' . $query_string);
+            $data = $this->http->getWithParams('/deals?' . $query_string);
         } else {
-            $data = HTTP::get('/deals');
+            $data = $this->http->get('/deals');
         }
 
-        return self::safeReturn($data);
+        return $this->safeReturn($data);
     }
 
     /**
@@ -46,10 +54,10 @@ class Deals extends APIObject
      * @param int $deal_id ID of the deal (required).
      * @return array Object of specific deal.
      */
-    public static function getDeal($deal_id)
+    public function getDeal($deal_id)
     {
-        $data = HTTP::get('/deals/' . $deal_id);
-        return self::safeReturn($data);
+        $data = $this->http->get('/deals/' . $deal_id);
+        return $this->safeReturn($data);
     }
 
     /**
@@ -63,16 +71,16 @@ class Deals extends APIObject
      * $args['org_id']     number  ID of the organization deal is associated with.
      * @return mixed Array of deal objects or NULL.
      */
-    public static function getDealsByName(array $args)
+    public function getDealsByName(array $args)
     {
         $accepted_params = array(
             'term', 'person_id', 'org_id',
         );
 
-        $query_string = HTTP::buildQueryString($args, $accepted_params);
+        $query_string = $this->http->buildQueryString($args, $accepted_params);
 
-        $data = HTTP::getWithParams('/deals/find?' . $query_string);
+        $data = $this->http->getWithParams('/deals/find?' . $query_string);
 
-        return self::safeReturn($data);
+        return $this->safeReturn($data);
     }
 }

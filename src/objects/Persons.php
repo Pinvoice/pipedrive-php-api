@@ -7,6 +7,14 @@ use Pinvoice\Pipedrive\HTTP;
 class Persons extends APIObject
 {
     /**
+     * [__construct description]
+     * @param [type] $http [description]
+     */
+    public function __construct($http) {
+        parent::__construct($http);
+    }
+
+    /**
      * Get all persons.
      *
      * HTTP GET /persons
@@ -20,18 +28,18 @@ class Persons extends APIObject
      *
      * @return array Array of all person objects.
      */
-    public static function getPersons($args = array())
+    public function getPersons($args = array())
     {
         $accepted_params = array(
             'filter_id', 'start', 'limit', 'sort_by', 'sort_mode',
         );
 
-        $query_string = HTTP::buildQueryString($args, $accepted_params);
+        $query_string = $this->http->buildQueryString($args, $accepted_params);
 
         if (!empty($query_string)) {
-            $data = HTTP::getWithParams('/persons?' . $query_string);
+            $data = $this->http->getWithParams('/persons?' . $query_string);
         } else {
-            $data = HTTP::get('/persons');
+            $data = $this->http->get('/persons');
         }
 
         return self::safeReturn($data);
@@ -45,9 +53,9 @@ class Persons extends APIObject
      * @param int $person_id ID of the person (required).
      * @return array Object of specific person.
      */
-    public static function getPerson($person_id)
+    public function getPerson($person_id)
     {
-        $data = HTTP::get('/persons/' . $person_id);
+        $data = $this->http->get('/persons/' . $person_id);
         return self::safeReturn($data);
     }
 
@@ -65,15 +73,15 @@ class Persons extends APIObject
      * $args['search_by_email'] boolean When enabled, term will only be matched against email addresses of people. Default: false
      * @return mixed Array of person objects or NULL.
      */
-    public static function getPersonsByName(array $args)
+    public function getPersonsByName(array $args)
     {
         $accepted_params = array(
             'term', 'person_id', 'org_id', 'start', 'limit', 'search_by_email'
         );
 
-        $query_string = HTTP::buildQueryString($args, $accepted_params);
+        $query_string = $this->http->buildQueryString($args, $accepted_params);
 
-        $data = HTTP::getWithParams('/persons/find?' . $query_string);
+        $data = $this->http->getWithParams('/persons/find?' . $query_string);
 
         return self::safeReturn($data);
     }

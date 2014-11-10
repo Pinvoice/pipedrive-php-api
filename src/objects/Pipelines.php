@@ -7,15 +7,23 @@ use Pinvoice\Pipedrive\HTTP;
 class Pipelines extends APIObject
 {
     /**
+     * [__construct description]
+     * @param [type] $http [description]
+     */
+    public function __construct($http) {
+        parent::__construct($http);
+    }
+
+    /**
      * Get Pipelines.
      *
      * HTTP GET /pipelines
      *
      * @return array Array of pipelines
      */
-    public static function getPipelines()
+    public function getPipelines()
     {
-        $data = HTTP::get('/pipelines');
+        $data = $this->http->get('/pipelines');
         return self::safeReturn($data);
     }
 
@@ -27,9 +35,9 @@ class Pipelines extends APIObject
      * @param int $id ID of Pipeline to get
      * @return object Single pipeline
      */
-    public static function getPipeline($id)
+    public function getPipeline($id)
     {
-        $data = HTTP::get('/pipelines/' . $id);
+        $data = $this->http->get('/pipelines/' . $id);
         return self::safeReturn($data);
     }
 
@@ -39,10 +47,10 @@ class Pipelines extends APIObject
      * @param array $args Array of several possible arguments
      * @return object New pipeline
      */
-    public static function addPipeline(array $args)
+    public function addPipeline(array $args)
     {
         // TODO: Arguments in doc and validation...
-        $data = HTTP::post('/pipelines', $args);
+        $data = $this->http->post('/pipelines', $args);
         return self::safeReturn($data);
     }
 

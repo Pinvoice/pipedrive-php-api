@@ -5,7 +5,28 @@ namespace Pinvoice\Pipedrive;
 use Curl\Curl;
 
 class HTTP
-{
+{   
+
+    /**
+     * [$token description]
+     * @var [type]
+     */
+    private $token;
+
+    /**
+     * [$endpoint description]
+     * @var [type]
+     */
+    private $endpoint;
+
+    /**
+     * [__construct description]
+     */
+    public function __construct($token, $endpoint) {
+        $this->token = $token;
+        $this->endpoint = $endpoint;
+    }
+
     /**
      * HTTP GET wrapper for Curl.
      * For requests without additional query parameters.
@@ -13,10 +34,10 @@ class HTTP
      * @param string $url URL to GET request to.
      * @return mixed Response data.
      */
-    public static function get($url)
+    public function get($url)
     {
         $curl = new Curl();
-        $curl->get(API::ENDPOINT . $url . '?api_token=' . API::getToken());
+        $curl->get($this->endpoint . $url . '?api_token=' . $this->token);
         $curl->close();
 
         return json_decode($curl->response);
@@ -29,10 +50,10 @@ class HTTP
      * @param string $url URL to GET request to.
      * @return mixed Response data.
      */
-    public static function getWithParams($url)
+    public function getWithParams($url)
     {
         $curl = new Curl();
-        $curl->get(API::ENDPOINT . $url . '&api_token=' . API::getToken());
+        $curl->get($this->endpoint . $url . '&api_token=' . $this->token);
         $curl->close();
 
         return json_decode($curl->response);
@@ -45,10 +66,10 @@ class HTTP
      * @param array $args POST data.
      * @return mixed Response data.
      */
-    public static function post($url, array $args = array())
+    public function post($url, array $args = array())
     {
         $curl = new Curl();
-        $curl->post(API::ENDPOINT . $url . '?api_token=' . API::getToken(), $args);
+        $curl->post($this->endpoint . $url . '?api_token=' . $this->token, $args);
         $curl->close();
 
         return json_decode($curl->response);
@@ -64,7 +85,7 @@ class HTTP
      * @throws \Exception if param is not in accepted params.
      * @return string Query string for HTTP request.
      */
-    public static function buildQueryString($args, $accepted_params)
+    public function buildQueryString($args, $accepted_params)
     {
         $query_string = "";
         $first = true;

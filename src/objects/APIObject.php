@@ -3,7 +3,21 @@
 namespace Pinvoice\Pipedrive\APIObjects;
 
 abstract class APIObject
-{
+{   
+    /**
+     * [$http description]
+     * @var [type]
+     */
+    protected $http;
+
+    /**
+     * [__construct description]
+     * @param [type] $http [description]
+     */
+    protected function __construct($http) {
+        $this->http = $http;
+    }
+
     /**
      * Handles errors in Pipedrive API requests.
      *

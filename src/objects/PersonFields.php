@@ -7,6 +7,14 @@ use Pinvoice\Pipedrive\HTTP;
 class PersonFields extends APIObject
 {
     /**
+     * [__construct description]
+     * @param [type] $http [description]
+     */
+    public function __construct($http) {
+        parent::__construct($http);
+    }
+
+    /**
      * Translate all custom Person fields in Person.
      *
      * Get PersonFields from getPersonFields() (or somewhere else).
@@ -18,13 +26,13 @@ class PersonFields extends APIObject
      * @param Person $person Person object with key as custom Person fields.
      * @return Person Person object with text as custom Person fields.
      */
-    public static function translatePersonFieldKeys($person)
+    public function translatePersonFieldKeys($person)
     {
         $personfields = self::getPersonFields();
 
         foreach ($person as $key => $value) {
-            if (PersonFields::isCustomPersonField($key)) {
-                $name = PersonFields::getPersonFieldByKey($key, $personfields)->name;
+            if ($this->isCustomPersonField($key)) {
+                $name = $this->getPersonFieldByKey($key, $personfields)->name;
                 $person->$name = $person->$key;
                 unset($person->$key);
             }
@@ -40,10 +48,28 @@ class PersonFields extends APIObject
      *
      * @return array Array of all person field objects.
      */
-    public static function getPersonFields()
+    public function getPersonFields()
     {
-        $data = HTTP::get('/personFields');
+        $data = $this->http->get('/personFields');
         return self::safeReturn($data);
+    }
+
+    /**
+     * Translate PersonField key to text.
+     *
+     * @param string $key Key of Person field.
+     * @param object $personfields PersonFields to look through (output of getPersonFields()).
+     * @return string PersonField text that belongs to key.
+     */
+    public function getPersonFieldByKey($key, $personfields)
+    {
+        foreach ($personfields as $personfield) {
+            if ($personfield->key == $key) {
+                return $personfield;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -54,27 +80,9 @@ class PersonFields extends APIObject
      * @param string $key Key of Person field.
      * @return boolean True if $key is custom Person field.
      */
-    private static function isCustomPersonField($key)
+    private function isCustomPersonField($key)
     {
         return preg_match('/^[a-f0-9]{40}$/', $key);
-    }
-
-    /**
-     * Translate PersonField key to text.
-     *
-     * @param string $key Key of Person field.
-     * @param object $personfields PersonFields to look through (output of getPersonFields()).
-     * @return string PersonField text that belongs to key.
-     */
-    public static function getPersonFieldByKey($key, $personfields)
-    {
-        foreach ($personfields as $personfield) {
-            if ($personfield->key == $key) {
-                return $personfield;
-            }
-        }
-
-        return null;
     }
 
 }

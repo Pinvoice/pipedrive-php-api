@@ -7,6 +7,14 @@ use Pinvoice\Pipedrive\HTTP;
 class DealFields extends APIObject
 {
     /**
+     * [__construct description]
+     * @param [type] $http [description]
+     */
+    public function __construct($http) {
+        parent::__construct($http);
+    }
+
+    /**
      * Translate all custom Deal fields in Deal.
      *
      * Get DealFields from getDealFields() (or somewhere else).
@@ -18,13 +26,13 @@ class DealFields extends APIObject
      * @param Deal $deal Deal object with key as custom Deal fields.
      * @return Deal Deal object with text as custom Deal fields.
      */
-    public static function translateDealFieldKeys($deal)
+    public function translateDealFieldKeys($deal)
     {
         $dealfields = self::getDealFields();
 
         foreach ($deal as $key => $value) {
-            if (DealFields::isCustomDealField($key)) {
-                $name = DealFields::getDealFieldByKey($key, $dealfields)->name;
+            if ($this->isCustomDealField($key)) {
+                $name = $this->getDealFieldByKey($key, $dealfields)->name;
                 $deal->$name = $deal->$key;
                 unset($deal->$key);
             }
@@ -40,9 +48,9 @@ class DealFields extends APIObject
      *
      * @return array Array of all deal field objects.
      */
-    public static function getDealFields()
+    public function getDealFields()
     {
-        $data = HTTP::get('/dealFields');
+        $data = $this->http->get('/dealFields');
         return self::safeReturn($data);
     }
 
@@ -54,7 +62,7 @@ class DealFields extends APIObject
      * @param string $key Key of Deal field.
      * @return boolean True if $key is custom Deal field.
      */
-    private static function isCustomDealField($key)
+    private function isCustomDealField($key)
     {
         return preg_match('/^[a-f0-9]{40}$/', $key);
     }
@@ -66,7 +74,7 @@ class DealFields extends APIObject
      * @param object $dealfields DealFields to look through (output of getDealFields()).
      * @return string DealField text that belongs to key.
      */
-    public static function getDealFieldByKey($key, $dealfields)
+    public function getDealFieldByKey($key, $dealfields)
     {
         foreach ($dealfields as $dealfield) {
             if ($dealfield->key == $key) {
