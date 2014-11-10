@@ -38,8 +38,7 @@ require 'vendor/autoload.php';
 
 use Pinvoice\Pipedrive\API as PipedriveAPI;
 
-PipedriveAPI::setToken('TOKEN');
-$pipedrive = PipedriveAPI::getInstance();
+$pipedrive = new PipedriveAPI('TOKEN');
 ```
 
 ## Usage
@@ -47,10 +46,10 @@ $pipedrive = PipedriveAPI::getInstance();
 ### Deals
 ```php
 // Get all deals
-$pipedrive->getDeals();
+$pipedrive->deals->getDeals();
 
 // Get all deals, with optional filters
-$pipedrive->getDeals(array(
+$pipedrive->deals->getDeals(array(
   'filter_id' => 12,
   'start' => 3,
   'limit' => 1,
@@ -60,15 +59,15 @@ $pipedrive->getDeals(array(
 ));
 
 // Get deal by ID
-$pipedrive->getDeal(70);
+$pipedrive->deals->getDeal(70);
 
 // Find deals by name
-$pipedrive->getDealsByName(array(
+$pipedrive->deals->getDealsByName(array(
 	'term' => "money"
 ));
 
 // Find deals by name, with optional filters
-$pipedrive->getDealsByName(array(
+$pipedrive->deals->getDealsByName(array(
 	'term' => "money",
 	'person_id' => 1,
 	'org_id' => 2
@@ -78,27 +77,27 @@ $pipedrive->getDealsByName(array(
 ### DealFields
 ```php
 // Get all deal fields
-$dealfields = $pipedrive->getDealFields();
+$dealfields = $pipedrive->dealfields->getDealFields();
 
 // Get deal field object by key (from deal fields set)
-$field = $pipedrive->getDealFieldByKey('109204dc0283d5ced6c0438f8b7a220ecac9238d', $dealfields);
+$field = $pipedrive->dealfields->getDealFieldByKey('109204dc0283d5ced6c0438f8b7a220ecac9238d', $dealfields);
 
 // Translate custom fields in Deal object(s), keys to text
 // For example, this will replace $deal->109204dc0283d5ced6c0438f8b7a220ecac9238d with $deal->test 
-$deals = $pipedrive->getDeals();
+$deals = $pipedrive->deals->getDeals();
 
 foreach ($deals as $deal) {
-    $pipedrive->translateDealFieldKeys($deal);
+    $pipedrive->dealfields->translateDealFieldKeys($deal);
 }
 ```
 
 ### Persons
 ```php
 // Get all persons
-$pipedrive->getPersons();
+$pipedrive->persons->getPersons();
 
 // Get all persons, with optional filters
-$pipedrive->getPersons(array(
+$pipedrive->persons->getPersons(array(
   'filter_id' => 12,
   'start' => 3,
   'limit' => 1,
@@ -107,15 +106,15 @@ $pipedrive->getPersons(array(
 ));
 
 // Get person by ID
-$pipedrive->getPerson(70);
+$pipedrive->person->getPerson(70);
 
 // Find person by name
-$pipedrive->getPersonsByName(array(
+$pipedrive->persons->getPersonsByName(array(
   'term' => "Junior"
 ));
 
 // Find persons by name, with optional filters
-$pipedrive->getPersonsByName(array(
+$pipedrive->persons->getPersonsByName(array(
   'term' => "Junior",
   'person_id' => 1,
   'org_id' => 2,
@@ -128,30 +127,30 @@ $pipedrive->getPersonsByName(array(
 ### PersonFields
 ```php
 // Get all person fields
-$personfields = $pipedrive->getPersonFields();
+$personfields = $pipedrive->personfields->getPersonFields();
 
 // Get person field object by key (from person fields set)
-$field = $pipedrive->getPersonFieldByKey('109204dc0283d5ced6c0438f8b7a220ecac9238d', $personfields);
+$field = $pipedrive->personfields->getPersonFieldByKey('109204dc0283d5ced6c0438f8b7a220ecac9238d', $personfields);
 
 // Translate custom fields in Person object(s), keys to text
 // For example, this will replace $person->109204dc0283d5ced6c0438f8b7a220ecac9238d with $person->test 
-$persons = $pipedrive->getPersons();
+$persons = $pipedrive->persons->getPersons();
 
 foreach ($persons as $person) {
-    $pipedrive->translatePersonFieldKeys($person);
+    $pipedrive->personfields->translatePersonFieldKeys($person);
 }
 ```
 
 ### Pipelines
 ```php
 // Get all pipelines
-$pipedrive->getPipelines();
+$pipedrive->pipelines->getPipelines();
 
 // Get pipeline by ID
-$pipedrive->getPipeline(1);
+$pipedrive->pipelines->getPipeline(1);
 
 // Add pipeline with name
-$pipedrive->addPipeline(array(
+$pipedrive->pipelines->addPipeline(array(
   'name' => 'My happy little pipeline'
 ));
 ```
@@ -159,11 +158,11 @@ $pipedrive->addPipeline(array(
 ### Stages
 ```php
 // Get all stages
-$pipedrive->getStages();
+$pipedrive->stages->getStages();
 
 // Get stage by ID
-$pipedrive->getStage(70);
+$pipedrive->stages->getStage(70);
 
 // Returns stages for provided pipeline
-$pipedrive->getStagesByPipelineId(1);
+$pipedrive->stages->getStagesByPipelineId(1);
 ```
