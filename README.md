@@ -106,7 +106,7 @@ $pipedrive->persons->getPersons(array(
 ));
 
 // Get person by ID
-$pipedrive->person->getPerson(70);
+$pipedrive->persons->getPerson(70);
 
 // Find person by name
 $pipedrive->persons->getPersonsByName(array(
