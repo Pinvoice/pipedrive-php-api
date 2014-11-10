@@ -8,6 +8,7 @@ class HTTP {
 
 	/**
 	 * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
+	 * @var string
 	 */
 	private $endpoint;
 

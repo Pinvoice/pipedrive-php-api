@@ -13,6 +13,7 @@ class API {
 
 	/**
 	 * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
+	 * @var string
 	 */
 	private $endpoint = 'http://api.pipedrive.com/v1/';
 
@@ -23,13 +24,13 @@ class API {
 	private $token = null;
 
 	/**
-	 * The HTTP instance for HTTP requests.
+	 * Holds the HTTP instance for HTTP requests.
 	 * @var object
 	 */
 	private $http;
 
 	/**
-	 * The APIObject instances.
+	 * Hold the APIObject instances.
 	 * @var objects
 	 */
 	public $deals;
