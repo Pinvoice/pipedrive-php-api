@@ -50,7 +50,7 @@ class DealFields extends APIObject {
 	 */
 	public function getDealFields() {
 		$data = $this->http->get('/dealFields');
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 	/**

@@ -23,7 +23,7 @@ class Stages extends APIObject {
 	 */
 	public function getStages() {
 		$data = $this->http->get('/stages');
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 	/**
@@ -36,7 +36,7 @@ class Stages extends APIObject {
 	 */
 	public function getStage($stage_id) {
 		$data = $this->http->get('/stages/' . $stage_id);
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 	/**
@@ -54,7 +54,7 @@ class Stages extends APIObject {
 		} else {
 			throw new \Exception("Param pipeline_id should be numeric.");
 		}
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 }

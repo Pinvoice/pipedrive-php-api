@@ -41,7 +41,7 @@ class Persons extends APIObject {
 			$data = $this->http->get('/persons');
 		}
 
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 	/**
@@ -54,7 +54,7 @@ class Persons extends APIObject {
 	 */
 	public function getPerson($person_id) {
 		$data = $this->http->get('/persons/' . $person_id);
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 	/**
@@ -80,7 +80,7 @@ class Persons extends APIObject {
 
 		$data = $this->http->getWithParams('/persons/find?' . $query_string);
 
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 }

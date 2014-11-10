@@ -23,7 +23,7 @@ class Pipelines extends APIObject {
 	 */
 	public function getPipelines() {
 		$data = $this->http->get('/pipelines');
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 	/**
@@ -36,7 +36,7 @@ class Pipelines extends APIObject {
 	 */
 	public function getPipeline($id) {
 		$data = $this->http->get('/pipelines/' . $id);
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 	/**
@@ -48,7 +48,7 @@ class Pipelines extends APIObject {
 	public function addPipeline(array $args) {
 		// TODO: Arguments in doc and validation...
 		$data = $this->http->post('/pipelines', $args);
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 }

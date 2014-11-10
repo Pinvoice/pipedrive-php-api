@@ -27,7 +27,7 @@ class PersonFields extends APIObject {
 	 * @return Person Person object with text as custom Person fields.
 	 */
 	public function translatePersonFieldKeys($person) {
-		$personfields = self::getPersonFields();
+		$personfields = $this->getPersonFields();
 
 		foreach ($person as $key => $value) {
 			if ($this->isCustomPersonField($key)) {
@@ -49,7 +49,7 @@ class PersonFields extends APIObject {
 	 */
 	public function getPersonFields() {
 		$data = $this->http->get('/personFields');
-		return self::safeReturn($data);
+		return $this->safeReturn($data);
 	}
 
 	/**
