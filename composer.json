@@ -3,8 +3,16 @@
     "description": "PHP API for Pipedrive",
     "keywords": ["pipedrive", "api"],
     "homepage": "https://github.com/Pinvoice/pipedrive-php-api",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.zendframework.com/"
+        }
+    ],
     "require": {
-        "curl/curl": "1.1.5"
+        "curl/curl": "1.1.5",
+        "zendframework/zend-filter": "2.3.3",
+        "zendframework/zend-validator": "2.3.3"
     },
     "license": "MIT",
     "authors": [{
