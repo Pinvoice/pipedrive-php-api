@@ -3,6 +3,7 @@
 namespace Pinvoice\Pipedrive\APIObjects;
 
 use Zend\Validator\Digits;
+use Pinvoice\Pipedrive\Exceptions\ValidatorException;
 
 abstract class APIObject
 {
@@ -44,13 +45,13 @@ abstract class APIObject
      *
      * @param $input mixed Input for validator.
      * @return bool Returns true if validation passed.
-     * @throws \Exception if $input is not a number.
+     * @throws ValidatorException if $input is not a number.
      */
     protected function validateDigit($input)
     {
         $validator = new Digits();
         if (!$validator->isValid($input)) {
-            throw new \Exception("Validation failed: {$input} is not a digit in function " .
+            throw new ValidatorException("Validation failed: {$input} is not a digit in function " .
                 debug_backtrace()[1]['function'] . ".");
         }
         return true;

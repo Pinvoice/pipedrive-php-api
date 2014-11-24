@@ -9,62 +9,62 @@ use Pinvoice\Pipedrive\APIObjects\Persons;
 use Pinvoice\Pipedrive\APIObjects\Pipelines;
 use Pinvoice\Pipedrive\APIObjects\Stages;
 
-class API {
+class API
+{
 
-	/**
-	 * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
-	 * @var string
-	 */
-	private $endpoint = 'http://api.pipedrive.com/v1/';
+    /**
+     * Hold the APIObject instances.
+     * @var objects
+     */
+    public $deals;
+    public $dealfields;
+    public $persons;
+    public $personfields;
+    public $pipelines;
+    public $stages;
+    /**
+     * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
+     * @var string
+     */
+    private $endpoint = 'http://api.pipedrive.com/v1/';
+    /**
+     * The Pipedrive API token.
+     * @var string
+     */
+    private $token = null;
+    /**
+     * Holds the HTTP instance for HTTP requests.
+     * @var object
+     */
+    private $http;
 
-	/**
-	 * The Pipedrive API token.
-	 * @var string
-	 */
-	private $token = null;
+    /**
+     * [__construct description]
+     * @param [type] $token [description]
+     */
+    public function __construct($token)
+    {
+        /**
+         * Initialize HTTP client.
+         */
+        $this->token = $token;
+        $this->http = new HTTP($this->token, $this->endpoint);
 
-	/**
-	 * Holds the HTTP instance for HTTP requests.
-	 * @var object
-	 */
-	private $http;
+        /**
+         * Initialize APIObjects
+         */
+        $this->deals = new Deals($this->http);
+        $this->dealfields = new DealFields($this->http);
+        $this->persons = new Persons($this->http);
+        $this->personfields = new PersonFields($this->http);
+        $this->pipelines = new Pipelines($this->http);
+        $this->stages = new Stages($this->http);
+    }
 
-	/**
-	 * Hold the APIObject instances.
-	 * @var objects
-	 */
-	public $deals;
-	public $dealfields;
-	public $persons;
-	public $personfields;
-	public $pipelines;
-	public $stages;
-
-	/**
-	 * [__construct description]
-	 * @param [type] $token [description]
-	 */
-	public function __construct($token) {
-		/**
-		 * Initialize HTTP client.
-		 */
-		$this->token = $token;
-		$this->http = new HTTP($this->token, $this->endpoint);
-
-		/**
-		 * Initialize APIObjects
-		 */
-		$this->deals = new Deals($this->http);
-		$this->dealfields = new DealFields($this->http);
-		$this->persons = new Persons($this->http);
-		$this->personfields = new PersonFields($this->http);
-		$this->pipelines = new Pipelines($this->http);
-		$this->stages = new Stages($this->http);
-	}
-
-	public function isAuthenticated() {
-		$response = $this->http->get('userSettings');
-		return $response->success;
-	}
+    public function isAuthenticated()
+    {
+        $response = $this->http->get('userSettings');
+        return $response->success;
+    }
 
 }
