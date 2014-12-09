@@ -33,9 +33,12 @@ class DealFields extends APIObject
 
         foreach ($deal as $key => $value) {
             if ($this->isCustomDealField($key)) {
-                $name = $this->getDealFieldByKey($key, $dealfields)->name;
-                $deal->$name = $deal->$key;
-                unset($deal->$key);
+            	$dealfield = $this->getDealFieldByKey($key, $dealfields);
+            	if($dealfield) {
+                	$name = $dealfield->name;
+                	$deal->$name = $deal->$key;
+                	unset($deal->$key);
+            	}
             }
         }
 
