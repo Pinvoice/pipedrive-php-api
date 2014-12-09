@@ -7,3 +7,7 @@ run.php
 phpunit.xml
 
 composer.lock
+
+.buildpath
+.project
+.settings
