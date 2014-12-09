@@ -53,8 +53,8 @@ $pipedrive->deals->getDeals(array(
   'filter_id' => 12,
   'start' => 3,
   'limit' => 1,
-  'sort_by' => "first_name",
-  'sort_mode' => "asc",
+  'sort_by' => 'first_name',
+  'sort_mode' => 'asc',
   'owned_by_you' => true
 ));
 
@@ -63,12 +63,12 @@ $pipedrive->deals->getDeal(70);
 
 // Find deals by name
 $pipedrive->deals->getDealsByName(array(
-	'term' => "money"
+	'term' => 'money'
 ));
 
 // Find deals by name, with optional filters
 $pipedrive->deals->getDealsByName(array(
-	'term' => "money",
+	'term' => 'money',
 	'person_id' => 1,
 	'org_id' => 2
 ));
@@ -101,8 +101,8 @@ $pipedrive->persons->getPersons(array(
   'filter_id' => 12,
   'start' => 3,
   'limit' => 1,
-  'sort_by' => "first_name",
-  'sort_mode' => "asc"
+  'sort_by' => 'first_name',
+  'sort_mode' => 'asc'
 ));
 
 // Get person by ID
@@ -110,12 +110,12 @@ $pipedrive->persons->getPerson(70);
 
 // Find person by name
 $pipedrive->persons->getPersonsByName(array(
-  'term' => "Junior"
+  'term' => 'Junior'
 ));
 
 // Find persons by name, with optional filters
 $pipedrive->persons->getPersonsByName(array(
-  'term' => "Junior",
+  'term' => 'Junior',
   'person_id' => 1,
   'org_id' => 2,
   'start' => 1,
