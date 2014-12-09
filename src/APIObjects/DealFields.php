@@ -29,7 +29,7 @@ class DealFields extends APIObject
      */
     public function translateDealFieldKeys($deal, $dealfields = null)
     {
-        $dealfields = $this->getDealFields();
+        $dealfields = $dealfields ? $dealfields : $this->getDealFields();
 
         foreach ($deal as $key => $value) {
             if ($this->isCustomDealField($key)) {
