@@ -177,3 +177,4 @@ Put `TOKEN` in your environment. You could create a `phpunit.xml` file with the 
 </phpunit>
 ```
 Run tests with `phpunit (-v) tests`.
+Or automatically using grunt: `npm install` and `grunt watch`.
