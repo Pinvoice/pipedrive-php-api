@@ -11,3 +11,5 @@ composer.lock
 .buildpath
 .project
 .settings
+
+node_modules/
