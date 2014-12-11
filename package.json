@@ -1,0 +1,10 @@
+{
+  "name": "pipedrive-php-api",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-notify": "^0.4.1",
+    "grunt-phpunit": "~0.3.2"
+  }
+}
