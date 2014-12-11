@@ -10,7 +10,7 @@ class APITest extends PHPUnit_Framework_TestCase {
 	 * API can authenticate with Pipedrive (valid token).
 	 */
 	public function testCanAuthenticate() {
-		$pipedrive = new PipedriveAPI(getenv('TOKEN'));
+		$pipedrive = new PipedriveAPI(getenv('PIPEDRIVE_TOKEN'));
 		$this->assertTrue($pipedrive->isAuthenticated());
 	}
 }

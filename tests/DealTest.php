@@ -10,7 +10,7 @@ class DealTest extends PHPUnit_Framework_TestCase {
 	 * Set up and test Pipedrive API connection, and get all Deals.
 	 */
 	public function setUp() {
-		$this->pipedrive = new PipedriveAPI(getenv('TOKEN'));
+		$this->pipedrive = new PipedriveAPI(getenv('PIPEDRIVE_TOKEN'));
 
 		if (!$this->pipedrive->isAuthenticated()) {
 			$this->markTestSkipped('Cannot authenticate with Pipedrive.');
