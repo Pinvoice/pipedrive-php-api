@@ -168,12 +168,12 @@ $pipedrive->stages->getStagesByPipelineId(1);
 ```
 
 ## Testing
-Put `TOKEN` in your environment. I recommend creating a `phpunit.xml` file with the following contents.
+Put `TOKEN` in your environment. You could create a `phpunit.xml` file with the following contents.
 ``` xml
 <phpunit>
     <php>
-        <env name="TOKEN" value="some_token"/>
+        <env name="PIPEDRIVE_TOKEN" value="some_token"/>
     </php>
 </phpunit>
 ```
-Run tests with `phpunit tests`.
+Run tests with `phpunit (-v) tests`.

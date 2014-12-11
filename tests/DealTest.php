@@ -24,7 +24,7 @@ class DealTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * Yes we can, or else setUp() would have failed.
+	 * Try to get all Deals.
 	 */
 	public function testCanGetDeals() {
 		$this->pipedrive->deals->getDeals();
@@ -36,8 +36,8 @@ class DealTest extends PHPUnit_Framework_TestCase {
 	public function testCanGetSingleDeal() {
 		// Try to get the first Deal and compare the add_time.
 		$firstDealInDeals = $this->deals[0];
-		$deal = $this->pipedrive->deals->getDeal($firstDealInDeals->id);
+		$dealByFirstDealId = $this->pipedrive->deals->getDeal($firstDealInDeals->id);
 
-		$this->assertEquals($firstDealInDeals->add_time, $deal->add_time);
+		$this->assertEquals($firstDealInDeals->add_time, $dealByFirstDealId->add_time);
 	}
 }
