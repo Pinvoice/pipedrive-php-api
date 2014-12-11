@@ -66,7 +66,7 @@ class DealFields extends APIObject
      * @param string $key Key of Deal field.
      * @return boolean True if $key is custom Deal field.
      */
-    private function isCustomDealField($key)
+    public function isCustomDealField($key)
     {
         return preg_match('/^[a-f0-9]{40}$/', $key);
     }

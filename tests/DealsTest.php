@@ -4,7 +4,7 @@ require ('vendor/autoload.php');
 
 use Pinvoice\Pipedrive\API as PipedriveAPI;
 
-class DealTest extends PHPUnit_Framework_TestCase {
+class DealsTest extends PHPUnit_Framework_TestCase {
 
 	/**
 	 * Set up and test Pipedrive API connection, and get all Deals.
