@@ -38,7 +38,7 @@ require 'vendor/autoload.php';
 
 use Pinvoice\Pipedrive\API as PipedriveAPI;
 
-$pipedrive = new PipedriveAPI('TOKEN');
+$pipedrive = new PipedriveAPI(getenv('PIPEDRIVE_TOKEN'));
 ```
 
 ## Usage
