@@ -11,17 +11,17 @@ Status
 API | Implementation | Documentation
 --- | ------------- | -------------------
 [Activities](https://developers.pipedrive.com/v1#methods-Activities)       | [X](#) | [X](#)
-[Deals](https://developers.pipedrive.com/v1#methods-Deals)                 | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Deals.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#deals)
-[DealFields](https://developers.pipedrive.com/v1#methods-DealFields)       | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/DealFields.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#dealfields)
+[Deals](https://developers.pipedrive.com/v1#methods-Deals)                 | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/APIObjects/Deals.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#deals)
+[DealFields](https://developers.pipedrive.com/v1#methods-DealFields)       | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/APIObjects/DealFields.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#dealfields)
 [Email](https://developers.pipedrive.com/v1#methods-EmailMessages)         | [X](#) | [X](#)
 [Files](https://developers.pipedrive.com/v1#methods-Files)                 | [X](#) | [X](#)
 [Notes](https://developers.pipedrive.com/v1#methods-Notes)                 | [X](#) | [X](#)
 [Organizations](https://developers.pipedrive.com/v1#methods-Organizations) | [X](#) | [X](#)
-[Persons](https://developers.pipedrive.com/v1#methods-Persons)             | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Persons.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#persons)
-[PersonFields](https://developers.pipedrive.com/v1#methods-PersonFields)   | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/PersonFields.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#personfields)
-[Pipelines](https://developers.pipedrive.com/v1#methods-Pipelines)         | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Pipelines.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#pipelines)
+[Persons](https://developers.pipedrive.com/v1#methods-Persons)             | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/APIObjects/Persons.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#persons)
+[PersonFields](https://developers.pipedrive.com/v1#methods-PersonFields)   | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/APIObjects/PersonFields.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#personfields)
+[Pipelines](https://developers.pipedrive.com/v1#methods-Pipelines)         | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/APIObjects/Pipelines.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#pipelines)
 [Products](https://developers.pipedrive.com/v1#methods-Products)           | [X](#) | [X](#)
-[Stages](https://developers.pipedrive.com/v1#methods-Stages)               | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/objects/Stages.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#stages)
+[Stages](https://developers.pipedrive.com/v1#methods-Stages)               | [P](https://github.com/Pinvoice/pipedrive-php-api/blob/master/src/APIObjects/Stages.php) | [√](https://github.com/Pinvoice/pipedrive-php-api#stages)
 
 ## Installation
 Add the package as a dependency in your `composer.json` file:
