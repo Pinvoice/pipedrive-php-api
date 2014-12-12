@@ -6,6 +6,8 @@ use Pinvoice\Pipedrive\API as PipedriveAPI;
 
 class PipelinesTest extends PHPUnit_Framework_TestCase
 {
+    private $pipedrive;
+    private $pipelines;
 
     /**
      * Set up and test Pipedrive API connection, and get all Deals.

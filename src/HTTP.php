@@ -20,7 +20,7 @@ class HTTP
     private $token;
 
     /**
-     * [__construct description]
+     * Set token and endpoint.
      */
     public function __construct($token, $endpoint)
     {
