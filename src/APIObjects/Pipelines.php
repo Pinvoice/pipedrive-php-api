@@ -39,7 +39,7 @@ class Pipelines extends APIObject
     {
         $this->validateDigit($id);
         $data = $this->http->get('/pipelines/' . $id);
-        
+
         return $this->safeReturn($data);
     }
 

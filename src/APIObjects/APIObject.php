@@ -2,8 +2,8 @@
 
 namespace Pinvoice\Pipedrive\APIObjects;
 
-use Zend\Validator\Digits;
 use Pinvoice\Pipedrive\Exceptions\ValidatorException;
+use Zend\Validator\Digits;
 
 abstract class APIObject
 {

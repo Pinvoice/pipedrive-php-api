@@ -31,7 +31,11 @@ class Persons extends APIObject
     public function getPersons($args = array())
     {
         $accepted_params = array(
-            'filter_id', 'start', 'limit', 'sort_by', 'sort_mode',
+            'filter_id',
+            'start',
+            'limit',
+            'sort_by',
+            'sort_mode',
         );
 
         $query_string = $this->http->buildQueryString($args, $accepted_params);
@@ -57,7 +61,7 @@ class Persons extends APIObject
     {
         $this->validateDigit($id);
         $data = $this->http->get('/persons/' . $id);
-        
+
         return $this->safeReturn($data);
     }
 
@@ -78,7 +82,12 @@ class Persons extends APIObject
     public function getPersonsByName(array $args)
     {
         $accepted_params = array(
-            'term', 'person_id', 'org_id', 'start', 'limit', 'search_by_email',
+            'term',
+            'person_id',
+            'org_id',
+            'start',
+            'limit',
+            'search_by_email',
         );
 
         $query_string = $this->http->buildQueryString($args, $accepted_params);

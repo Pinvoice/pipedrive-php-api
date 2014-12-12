@@ -31,29 +31,16 @@ class DealFields extends APIObject
     {
         foreach ($deal as $key => $value) {
             if ($this->isCustomDealField($key)) {
-            	$dealfield = $this->getDealFieldByKey($key, $dealfields);
-            	if($dealfield) {
-                	$name = $dealfield->name;
-                	$deal->$name = $deal->$key;
-                	unset($deal->$key);
-            	}
+                $dealfield = $this->getDealFieldByKey($key, $dealfields);
+                if ($dealfield) {
+                    $name = $dealfield->name;
+                    $deal->$name = $deal->$key;
+                    unset($deal->$key);
+                }
             }
         }
 
         return $deal;
-    }
-
-    /**
-     * Get all deal fields.
-     *
-     * HTTP GET /dealFields
-     *
-     * @return array Array of all deal field objects.
-     */
-    public function getDealFields()
-    {
-        $data = $this->http->get('/dealFields');
-        return $this->safeReturn($data);
     }
 
     /**
@@ -85,6 +72,19 @@ class DealFields extends APIObject
         }
 
         return null;
+    }
+
+    /**
+     * Get all deal fields.
+     *
+     * HTTP GET /dealFields
+     *
+     * @return array Array of all deal field objects.
+     */
+    public function getDealFields()
+    {
+        $data = $this->http->get('/dealFields');
+        return $this->safeReturn($data);
     }
 
 }

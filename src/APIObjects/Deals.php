@@ -31,7 +31,12 @@ class Deals extends APIObject
     public function getDeals($args = array())
     {
         $accepted_params = array(
-            'filter_id', 'start', 'limit', 'sort_by', 'sort_mode', 'owned_by_you',
+            'filter_id',
+            'start',
+            'limit',
+            'sort_by',
+            'sort_mode',
+            'owned_by_you',
         );
 
         $query_string = $this->http->buildQueryString($args, $accepted_params);
@@ -57,7 +62,7 @@ class Deals extends APIObject
     {
         $this->validateDigit($id);
         $data = $this->http->get('/deals/' . $id);
-        
+
         return $this->safeReturn($data);
     }
 
@@ -75,7 +80,9 @@ class Deals extends APIObject
     public function getDealsByName(array $args)
     {
         $accepted_params = array(
-            'term', 'person_id', 'org_id',
+            'term',
+            'person_id',
+            'org_id',
         );
 
         $query_string = $this->http->buildQueryString($args, $accepted_params);
