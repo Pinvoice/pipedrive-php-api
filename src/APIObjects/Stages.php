@@ -2,8 +2,6 @@
 
 namespace Pinvoice\Pipedrive\APIObjects;
 
-use Pinvoice\Pipedrive\Exceptions\ValidatorException;
-
 class Stages extends APIObject
 {
 
@@ -41,7 +39,7 @@ class Stages extends APIObject
     {
         $this->validateDigit($id);
         $data = $this->http->get('/stages/' . $id);
-        
+
         return $this->safeReturn($data);
     }
 
