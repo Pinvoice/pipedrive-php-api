@@ -37,10 +37,9 @@ class Pipelines extends APIObject
      */
     public function getPipeline($id)
     {
-
         $this->validateDigit($id);
-
         $data = $this->http->get('/pipelines/' . $id);
+        
         return $this->safeReturn($data);
     }
 

@@ -27,10 +27,8 @@ class DealFields extends APIObject
      * @param DealFields $dealfields Optional custom DealFields data.
      * @return Deal Deal object with text as custom Deal fields.
      */
-    public function translateDealFieldKeys($deal, $dealfields = null)
+    public function translateDealFieldKeys($deal, array $dealfields)
     {
-        $dealfields = $dealfields ? $dealfields : $this->getDealFields();
-
         foreach ($deal as $key => $value) {
             if ($this->isCustomDealField($key)) {
             	$dealfield = $this->getDealFieldByKey($key, $dealfields);
@@ -78,7 +76,7 @@ class DealFields extends APIObject
      * @param object $dealfields DealFields to look through (output of getDealFields()).
      * @return string DealField text that belongs to key.
      */
-    public function getDealFieldByKey($key, $dealfields)
+    public function getDealFieldByKey($key, array $dealfields)
     {
         foreach ($dealfields as $dealfield) {
             if ($dealfield->key == $key) {

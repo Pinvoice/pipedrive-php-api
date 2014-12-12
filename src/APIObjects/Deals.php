@@ -50,12 +50,14 @@ class Deals extends APIObject
      *
      * HTTP GET /deals/1
      *
-     * @param int $deal_id ID of the deal (required).
+     * @param int $id ID of the deal (required).
      * @return array Object of specific deal.
      */
-    public function getDeal($deal_id)
+    public function getDeal($id)
     {
-        $data = $this->http->get('/deals/' . $deal_id);
+        $this->validateDigit($id);
+        $data = $this->http->get('/deals/' . $id);
+        
         return $this->safeReturn($data);
     }
 

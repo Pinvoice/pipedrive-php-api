@@ -74,7 +74,7 @@ class PersonFields extends APIObject
      * @param object $personfields PersonFields to look through (output of getPersonFields()).
      * @return string PersonField text that belongs to key.
      */
-    public function getPersonFieldByKey($key, $personfields)
+    public function getPersonFieldByKey($key, array $personfields)
     {
         foreach ($personfields as $personfield) {
             if ($personfield->key == $key) {

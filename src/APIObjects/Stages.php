@@ -2,6 +2,8 @@
 
 namespace Pinvoice\Pipedrive\APIObjects;
 
+use Pinvoice\Pipedrive\Exceptions\ValidatorException;
+
 class Stages extends APIObject
 {
 
@@ -32,12 +34,14 @@ class Stages extends APIObject
      *
      * HTTP GET /stages/1
      *
-     * @param int $stage_id ID of stage to get
+     * @param int $id ID of stage to get
      * @return array Returns data about a specific stage
      */
-    public function getStage($stage_id)
+    public function getStage($id)
     {
-        $data = $this->http->get('/stages/' . $stage_id);
+        $this->validateDigit($id);
+        $data = $this->http->get('/stages/' . $id);
+        
         return $this->safeReturn($data);
     }
 
@@ -46,17 +50,15 @@ class Stages extends APIObject
      *
      * HTTP GET /stages/?pipeline_id=1
      *
-     * @param int $pipeline_id ID of the pipeline to fetch stages for
+     * @param int $id ID of the pipeline to fetch stages for
      * @throws \Exception if $pipeline_id isn't numeric.
      * @return array Returns stages for provided pipeline
      */
-    public function getStagesByPipelineId($pipeline_id)
+    public function getStagesByPipelineId($id)
     {
-        if (is_numeric($pipeline_id)) {
-            $data = $this->http->getWithParams('/stages?pipeline_id=' . $pipeline_id);
-        } else {
-            throw new \Exception("Param pipeline_id should be numeric.");
-        }
+        $this->validateDigit($id);
+        $data = $this->http->getWithParams('/stages?pipeline_id=' . $id);
+
         return $this->safeReturn($data);
     }
 

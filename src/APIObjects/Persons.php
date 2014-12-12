@@ -50,12 +50,14 @@ class Persons extends APIObject
      *
      * HTTP GET /persons/1
      *
-     * @param int $person_id ID of the person (required).
+     * @param int $id ID of the person (required).
      * @return array Object of specific person.
      */
-    public function getPerson($person_id)
+    public function getPerson($id)
     {
-        $data = $this->http->get('/persons/' . $person_id);
+        $this->validateDigit($id);
+        $data = $this->http->get('/persons/' . $id);
+        
         return $this->safeReturn($data);
     }
 

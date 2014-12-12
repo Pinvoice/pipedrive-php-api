@@ -57,9 +57,9 @@ class DealFieldsTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue(property_exists($deal, $this->lastDealField->key));
 
 		// Translate keys
-		$this->pipedrive->dealfields->translateDealFieldKeys($deal);
+		$this->pipedrive->dealfields->translateDealFieldKeys($deal, $this->dealfields);
 
-		// Check the translation? TODO.
+		// TODO: Check the actual translation.
 
 		// Should be unset
 		$this->assertFalse(property_exists($deal, $this->lastDealField->key));
