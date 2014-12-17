@@ -51,7 +51,7 @@ class DealsTest extends PHPUnit_Framework_TestCase
     public function testCanGetDealsByName()
     {
         $params = array(
-            'term' => 'tdsadsest'
+            'term' => 'testing'
         );
         $this->pipedrive->deals->getDealsByName($params);
     }

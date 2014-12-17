@@ -62,7 +62,7 @@ class PersonFields extends APIObject
      * @param string $key Key of Person field.
      * @return boolean True if $key is custom Person field.
      */
-    private function isCustomPersonField($key)
+    public function isCustomPersonField($key)
     {
         return preg_match('/^[a-f0-9]{40}$/', $key);
     }

@@ -53,7 +53,6 @@ class DealFieldsTest extends PHPUnit_Framework_TestCase
 
     /**
      * Try to translate DealFields key to it's value in a Deal.
-     * 109204dc0283d5ced6c0438f8b7a220ecac9238d -> Test.
      */
     public function testCanTranslateDealFieldKeys()
     {
