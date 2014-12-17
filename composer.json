@@ -22,7 +22,8 @@
     "autoload": {
         "psr-4": {
             "Pinvoice\\Pipedrive\\": "src/",
-            "Pinvoice\\Pipedrive\\APIObjects\\": "src/APIObjects/"
+            "Pinvoice\\Pipedrive\\APIObjects\\": "src/APIObjects/",
+            "Pinvoice\\Pipedrive\\Exceptions\\": "src/Exceptions/"
         }
     }
 }

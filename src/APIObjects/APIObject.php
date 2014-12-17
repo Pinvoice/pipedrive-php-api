@@ -30,7 +30,7 @@ abstract class APIObject
      *
      * @param array $data JSON object.
      *
-     * @throws \Exception if $data->success isn't there.
+     * @throws PipedriveException if $data->success isn't there.
      * @return mixed Return data.
      */
     protected static function safeReturn($data)
