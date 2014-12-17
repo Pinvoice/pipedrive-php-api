@@ -1,7 +1,5 @@
 <?php
 
-require('vendor/autoload.php');
-
 use Pinvoice\Pipedrive\API as PipedriveAPI;
 
 class APITest extends PHPUnit_Framework_TestCase
