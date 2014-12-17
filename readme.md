@@ -163,13 +163,10 @@ $pipedrive->stages->getStagesByPipelineId(1);
 ```
 
 ## Testing
-Put `TOKEN` in your environment. You could create a `phpunit.xml` file with the following contents.
+Put `TOKEN` in your environment. Or put the following in `phpunit.xml`.
 ``` xml
-<phpunit>
-    <php>
-        <env name="PIPEDRIVE_TOKEN" value="some_token"/>
-    </php>
-</phpunit>
+<php>
+    <env name="PIPEDRIVE_TOKEN" value="some_token"/>
+</php>
 ```
 Run tests with `phpunit (-v) tests`.
-Or automatically using grunt: `npm install` and `grunt watch`.
