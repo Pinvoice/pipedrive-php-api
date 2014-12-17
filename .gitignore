@@ -5,6 +5,7 @@ vendor/
 .DS_Store
 run.php
 phpunit.xml
+log
 
 composer.lock
 
@@ -13,3 +14,4 @@ composer.lock
 .settings
 
 node_modules/
+
