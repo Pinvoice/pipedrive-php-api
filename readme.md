@@ -148,11 +148,6 @@ $pipedrive->pipelines->getPipelines();
 
 // Get pipeline by ID
 $pipedrive->pipelines->getPipeline(1);
-
-// Add pipeline with name
-$pipedrive->pipelines->addPipeline(array(
-  'name' => 'My happy little pipeline'
-));
 ```
 
 ### Stages

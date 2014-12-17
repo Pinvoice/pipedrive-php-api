@@ -3,6 +3,7 @@
 namespace Pinvoice\Pipedrive;
 
 use Curl\Curl;
+use Pinvoice\Pipedrive\Exceptions\APIException;
 
 class HTTP
 {
@@ -46,7 +47,7 @@ class HTTP
 
     /**
      * HTTP GET wrapper for Curl.
-     * For requests with additional query paramters.
+     * For requests with additional query parameters.
      *
      * @param string $url URL to GET request to.
      * @return mixed Response data.
@@ -67,14 +68,17 @@ class HTTP
      * @param array $args POST data.
      * @return mixed Response data.
      */
-    public function post($url, array $args = array())
-    {
-        $curl = new Curl();
-        $curl->post($this->endpoint . $url . '?api_token=' . $this->token, $args);
-        $curl->close();
 
-        return json_decode($curl->response);
-    }
+    /**
+     * public function post($url, array $args = array())
+     * {
+     *    $curl = new Curl();
+     *    $curl->post($this->endpoint . $url . '?api_token=' . $this->token, $args);
+     *    $curl->close();
+     *
+     *    return json_decode($curl->response);
+     * }
+     */
 
     /**
      * Function to build the query string.
@@ -83,7 +87,7 @@ class HTTP
      * @param array $args Array of parameters (key,value).
      * @param array $accepted_params Accepted parameter keys.
      *
-     * @throws \Exception if param is not in accepted params.
+     * @throws APIException if param is not in accepted params.
      * @return string Query string for HTTP request.
      */
     public function buildQueryString($args, $accepted_params)
@@ -100,7 +104,7 @@ class HTTP
                 }
                 $first = false;
             } else {
-                throw new \Exception("Param '" . $key . "' does not exist in function " .
+                throw new APIException("Param '" . $key . "' does not exist in function " .
                     debug_backtrace()[1]['function'] . ".");
             }
         }

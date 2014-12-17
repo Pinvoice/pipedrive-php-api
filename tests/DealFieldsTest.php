@@ -71,4 +71,13 @@ class DealFieldsTest extends PHPUnit_Framework_TestCase
         $this->assertFalse(property_exists($deal, $this->lastDealField->key));
     }
 
+    public function testGetDealFieldByKeyEmptyIsNull () {
+        $dealfields = $this->pipedrive->dealfields->getDealFieldByKey(
+            $this->lastDealField->key,
+            []
+        );
+
+        $this->assertNull($dealfields);
+    }
+
 }

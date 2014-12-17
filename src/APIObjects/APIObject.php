@@ -3,6 +3,8 @@
 namespace Pinvoice\Pipedrive\APIObjects;
 
 use Pinvoice\Pipedrive\Exceptions\ValidatorException;
+use Pinvoice\Pipedrive\Exceptions\PipedriveException;
+
 use Zend\Validator\Digits;
 
 abstract class APIObject
@@ -34,7 +36,7 @@ abstract class APIObject
     protected static function safeReturn($data)
     {
         if (!$data->success) {
-            throw new \Exception(isset($data->error) ? "Pipedrive: " . $data->error : "Unknown error.");
+            throw new PipedriveException(isset($data->error) ? "Pipedrive: " . $data->error : "Unknown error.");
         } else {
             return $data->data;
         }

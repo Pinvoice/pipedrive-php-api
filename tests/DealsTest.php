@@ -34,6 +34,29 @@ class DealsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Try to get Deals with Params.
+     */
+    public function testCanGetDealsWithParams()
+    {
+        $params = array(
+            'limit' => '1',
+            'start' => '1'
+        );
+        $this->pipedrive->deals->getDeals($params);
+    }
+
+    /**
+     * Try to get Deals by name.
+     */
+    public function testCanGetDealsByName()
+    {
+        $params = array(
+            'term' => 'tdsadsest'
+        );
+        $this->pipedrive->deals->getDealsByName($params);
+    }
+
+    /**
      * Try to get single Deal.
      */
     public function testCanGetSingleDeal()
@@ -44,4 +67,5 @@ class DealsTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($firstDealInDeals->add_time, $dealByFirstDealId->add_time);
     }
+
 }

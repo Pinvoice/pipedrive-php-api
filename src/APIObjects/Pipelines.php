@@ -49,11 +49,13 @@ class Pipelines extends APIObject
      * @param array $args Array of several possible arguments
      * @return object New pipeline
      */
-    public function addPipeline(array $args)
-    {
-        // TODO: Arguments in doc and validation...
-        $data = $this->http->post('/pipelines', $args);
-        return $this->safeReturn($data);
-    }
+
+    /**
+     * public function addPipeline(array $args)
+     * {
+     *    $data = $this->http->post('/pipelines', $args);
+     *    return $this->safeReturn($data);
+     * }
+     */
 
 }
