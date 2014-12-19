@@ -163,7 +163,7 @@ $pipedrive->stages->getStagesByPipelineId(1);
 ```
 
 ## Testing
-Put `TOKEN` in your environment. Or put the following in `phpunit.xml`.
+Put `PIPEDRIVE_TOKEN` in your environment. Or put the following in `phpunit.xml`.
 ``` xml
 <php>
     <env name="PIPEDRIVE_TOKEN" value="some_token"/>
