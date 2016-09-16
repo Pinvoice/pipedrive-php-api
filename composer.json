@@ -21,9 +21,12 @@
     }],
     "autoload": {
         "psr-4": {
-            "Pinvoice\\Pipedrive\\": "src/",
-            "Pinvoice\\Pipedrive\\APIObjects\\": "src/APIObjects/",
-            "Pinvoice\\Pipedrive\\Exceptions\\": "src/Exceptions/"
+            "Pinvoice\\Pipedrive\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
         }
     }
 }
