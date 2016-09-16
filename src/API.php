@@ -22,7 +22,7 @@ class API
      * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
      * @var string
      */
-    private $endpoint = 'http://api.pipedrive.com/v1/';
+    private $endpoint = 'https://api.pipedrive.com/v1/';
 
     /**
      * The Pipedrive API token.
