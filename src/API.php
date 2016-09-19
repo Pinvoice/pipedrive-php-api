@@ -39,10 +39,14 @@ class API
     /**
      * Set HTTP with endpoint and token. Create classes for each API object.
      * @param string $token Pipedrive API token.
+     * @param string $endpoint Pipedrive API endopoint.
      */
-    public function __construct($token)
+    public function __construct($token, $endpoint = null)
     {
         $this->token = $token;
+        if(isset($endpoint)){
+           $this->endpoint = $endpoint; 
+        }
         $this->http = new HTTP($this->token, $this->endpoint);
 
         $this->deals = new Deals($this->http);
