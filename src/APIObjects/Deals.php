@@ -39,6 +39,19 @@ class Deals extends APIObject
             'owned_by_you',
         );
 
+        if($args['limit'] > 500) {
+            do {
+                $args['limit'] = 500;
+
+                $query_string = $this->http->buildQueryString($args, $accepted_params);
+
+                $result = $this->http->getWithParams('/deals?' . $query_string);
+                $deals = array_merge($deals, $result->data);
+                $args['start'] += 500; 
+            } while(count($result->data) == 500);
+            return $this->safeReturn($result);
+        }
+
         $query_string = $this->http->buildQueryString($args, $accepted_params);
 
         if (!empty($query_string)) {
