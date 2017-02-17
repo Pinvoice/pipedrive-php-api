@@ -7,6 +7,7 @@ run.php
 log
 
 composer.lock
+phpunit.xml
 
 .buildpath
 .project
