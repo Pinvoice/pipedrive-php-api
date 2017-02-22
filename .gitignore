@@ -1,6 +1,7 @@
 # App files and folders
 composer.lock
 log
+phpunit.xml
 vendor/
 
 # OS and IDE files and folders

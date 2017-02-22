@@ -29,5 +29,11 @@
     "psr-4": {
       "Pinvoice\\Pipedrive\\": "src/"
     }
+  },
+
+  "scripts": {
+    "test": [
+      "phpunit tests/ -c phpunit.xml"
+    ]
   }
 }
