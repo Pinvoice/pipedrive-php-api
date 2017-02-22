@@ -8,6 +8,12 @@ vendor/
 .idea/
 .DS_Store
 run.php
+
+log
+
+composer.lock
+phpunit.xml
+
 .buildpath
 .project
 .settings
