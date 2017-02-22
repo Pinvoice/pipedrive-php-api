@@ -66,7 +66,7 @@ class Deals extends APIObject
             'owned_by_you',
         );
 
-        $deals = [];
+        $deals = array();
 
         $args['limit'] = PipedriveApi::MAX_LIMIT;
 
