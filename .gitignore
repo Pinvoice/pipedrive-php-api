@@ -1,9 +1,14 @@
-composer.phar
+# App files and folders
+composer.lock
+log
+phpunit.xml
 vendor/
 
-.idea
+# OS and IDE files and folders
+.idea/
 .DS_Store
 run.php
+
 log
 
 composer.lock
@@ -13,5 +18,5 @@ phpunit.xml
 .project
 .settings
 
-node_modules/
+
 
