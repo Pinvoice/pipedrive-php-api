@@ -49,7 +49,9 @@ class StagesTest extends PHPUnit_Framework_TestCase
      */
     public function testCanGetStagesByPipelineId()
     {
-        $firstPipeline = $this->pipedrive->pipelines->getPipelines()[0];
+        $pipelines = $this->pipedrive->pipelines->getPipelines();
+
+        $firstPipeline = $pipelines[0];
         $this->pipedrive->stages->getStagesByPipelineId($firstPipeline->id);
     }
 
