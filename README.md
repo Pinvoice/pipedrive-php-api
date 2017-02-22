@@ -3,9 +3,8 @@ pipedrive-php-api
 
 PHP API for Pipedrive. Work in progress!  
 
+[![Build Status](https://travis-ci.org/vinyguedess/pipedrive-php-api.svg?branch=master)](https://travis-ci.org/vinyguedess/pipedrive-php-api)
 [![Latest Stable Version](https://poser.pugx.org/pinvoice/pipedrive-php-api/v/stable.svg)](https://packagist.org/packages/pinvoice/pipedrive-php-api) 
-[![Total Downloads](https://poser.pugx.org/pinvoice/pipedrive-php-api/downloads.svg)](https://packagist.org/packages/pinvoice/pipedrive-php-api) 
-[![Latest Unstable Version](https://poser.pugx.org/pinvoice/pipedrive-php-api/v/unstable.svg)](https://packagist.org/packages/pinvoice/pipedrive-php-api) 
 [![License](https://poser.pugx.org/pinvoice/pipedrive-php-api/license.svg)](https://packagist.org/packages/pinvoice/pipedrive-php-api)
 
 Status
