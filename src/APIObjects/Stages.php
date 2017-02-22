@@ -54,8 +54,9 @@ class Stages extends APIObject
      */
     public function getStagesByPipelineId($id)
     {
-        $this->validateDigit($id);
-        $data = $this->http->getWithParams('/stages?pipeline_id=' . $id);
+        $data = $this->http->getWithParams('/stages', array(
+            'pipeline_id' => $id
+        ));
 
         return $this->safeReturn($data);
     }

@@ -52,10 +52,13 @@ class HTTP
      * @param string $url URL to GET request to.
      * @return mixed Response data.
      */
-    public function getWithParams($url)
+    public function getWithParams($url, $params = array())
     {
+        $params['api_token'] = $this->token;
+        $params = http_build_query($params);
+
         $curl = new Curl();
-        $curl->get($this->endpoint . $url . '&api_token=' . $this->token);
+        $curl->get("{$this->endpoint}{$url}?{$params}");
         $curl->close();
 
         return json_decode($curl->response);

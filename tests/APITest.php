@@ -5,11 +5,11 @@ use Pinvoice\Pipedrive\API as PipedriveAPI;
 class APITest extends PHPUnit_Framework_TestCase
 {
 
+    /**
+     * @var PipedriveAPI
+     */
     private $pipedrive;
 
-    /**
-     * Set up and test Pipedrive API connection, and add some test data.
-     */
     public function setUp()
     {
         $this->pipedrive = new PipedriveAPI(getenv('PIPEDRIVE_TOKEN'));
@@ -19,9 +19,6 @@ class APITest extends PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * API can authenticate with Pipedrive (valid token).
-     */
     public function testCanAuthenticate()
     {
         $pipedrive = new PipedriveAPI(getenv('PIPEDRIVE_TOKEN'));
@@ -29,14 +26,10 @@ class APITest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Disallow unknown params.
-     * @expectedException Pinvoice\Pipedrive\Exceptions\APIException
+     * @expectedException Pinvoice\Pipedrive\Exceptions\PipedriveException
      */
     public function testDoesNotAcceptUnknownParams() {
-        $params = array(
-            'not_existing' => 'test'
-        );
-
+        $params = array('not_existing' => 'test');
         $this->pipedrive->deals->getDealsByName($params);
     }
 
