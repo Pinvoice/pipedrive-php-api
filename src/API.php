@@ -11,6 +11,7 @@ use Pinvoice\Pipedrive\APIObjects\Stages;
 
 class API
 {
+    const MAX_LIMIT = 500;
 
     public $deals;
     public $dealfields;

@@ -10,6 +10,11 @@
         <includePath>./</includePath>
         <env name="PIPEDRIVE_TOKEN" value="PIPEDRIVE_TOKEN" />
     </php>
+    <filter>
+      <whitelist processUncoveredFilesFromWhitelist="true">
+        <directory suffix=".php">./src/</directory>
+      </whitelist>
+    </filter>
 
     <logging>
         <log type="coverage-html" target="./log/codeCoverage" charset="UTF-8" yui="true" highlight="true" lowUpperBound="50" highLowerBound="80" />
