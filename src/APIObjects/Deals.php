@@ -66,7 +66,7 @@ class Deals extends APIObject
      * $args['org_id']     number  ID of the organization deal is associated with.
      * @return mixed Array of deal objects or NULL.
      */
-    public function getDealsByName(array $args)
+    public function getDealsByName($args)
     {
         $data = $this->http->getWithParams('/deals/find', $args);
 
