@@ -104,8 +104,8 @@ class HTTP
                 }
                 $first = false;
             } else {
-                throw new APIException("Param '" . $key . "' does not exist in function " .
-                    debug_backtrace()[1]['function'] . ".");
+                $debug = debug_backtrace();
+                throw new APIException("Param '" . $key . "' does not exist in function " . $debug[1]['function'] . ".");
             }
         }
 
