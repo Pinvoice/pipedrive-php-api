@@ -12,11 +12,6 @@
       </whitelist>
     </filter>
 
-    <php>
-        <includePath>./</includePath>
-        <env name="PIPEDRIVE_TOKEN" value="a90b82561cb1005a61312b0d24658a1a9921f86f" />
-    </php>
-
     <logging>
         <log type="coverage-html" target="./log/codeCoverage" charset="UTF-8" yui="true" highlight="true" lowUpperBound="50" highLowerBound="80" />
     </logging>

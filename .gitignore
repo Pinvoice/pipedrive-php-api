@@ -1,16 +1,15 @@
-composer.phar
+# App files and folders
+composer.lock
+log
 vendor/
 
-.idea
+# OS and IDE files and folders
+.idea/
 .DS_Store
 run.php
-log
-
-composer.lock
-
 .buildpath
 .project
 .settings
 
-node_modules/
+
 
