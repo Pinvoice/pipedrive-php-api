@@ -2,17 +2,18 @@
 
 namespace Pinvoice\Pipedrive\APIObjects;
 
+
 use Pinvoice\Pipedrive\Exceptions\ValidatorException;
 use Pinvoice\Pipedrive\Exceptions\PipedriveException;
-
+use Pinvoice\Pipedrive\HTTP;
 use Zend\Validator\Digits;
 
 abstract class APIObject
 {
 
     /**
-     * [$http description]
-     * @var [type]
+     *
+     * @var HTTP
      */
     protected $http;
 
@@ -53,9 +54,10 @@ abstract class APIObject
     {
         $validator = new Digits();
         if (!$validator->isValid($input)) {
-            throw new ValidatorException("Validation failed: {$input} is not a digit in function " .
-                debug_backtrace()[1]['function'] . ".");
+            $debug = debug_backtrace();
+            throw new ValidatorException("Validation failed: {$input} is not a digit in function {$debug[1]['function']}.");
         }
+
         return true;
     }
 

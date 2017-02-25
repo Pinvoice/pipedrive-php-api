@@ -2,6 +2,7 @@
 
 namespace Pinvoice\Pipedrive;
 
+
 use Pinvoice\Pipedrive\APIObjects\DealFields;
 use Pinvoice\Pipedrive\APIObjects\Deals;
 use Pinvoice\Pipedrive\APIObjects\PersonFields;
@@ -11,6 +12,8 @@ use Pinvoice\Pipedrive\APIObjects\Stages;
 
 class API
 {
+    const MAX_LIMIT = 500;
+
     public $deals;
     public $dealfields;
     public $persons;
@@ -22,7 +25,7 @@ class API
      * Endpoint for Pipedrive, HTTP or HTTPS (configurable).
      * @var string
      */
-    private $endpoint = 'https://api.pipedrive.com/v1/';
+    private $endpoint = 'https://api.pipedrive.com/v1';
 
     /**
      * The Pipedrive API token.
@@ -55,7 +58,7 @@ class API
 
     public function isAuthenticated()
     {
-        $response = $this->http->get('userSettings');
+        $response = $this->http->get('/userSettings');
         return $response->success;
     }
 

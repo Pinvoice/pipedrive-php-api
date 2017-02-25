@@ -73,7 +73,7 @@ class PersonFieldsTest extends PHPUnit_Framework_TestCase
     public function testGetPersonFieldByKeyEmptyIsNull () {
         $personfields = $this->pipedrive->personfields->getPersonFieldByKey(
             $this->lastPersonField->key,
-            []
+            array()
         );
 
         $this->assertNull($personfields);

@@ -53,6 +53,7 @@ class PersonsTest extends PHPUnit_Framework_TestCase
         $params = array(
             'term' => 'testing'
         );
+
         $this->pipedrive->persons->getPersonsByName($params);
     }
 

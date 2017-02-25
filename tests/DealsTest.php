@@ -4,7 +4,12 @@ use Pinvoice\Pipedrive\API as PipedriveAPI;
 
 class DealsTest extends PHPUnit_Framework_TestCase
 {
+
+    /**
+     * @var PipedriveAPI
+     */
     private $pipedrive;
+
     private $deals;
 
     /**
@@ -25,12 +30,10 @@ class DealsTest extends PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * Try to get all Deals.
-     */
     public function testCanGetDeals()
     {
-        $this->pipedrive->deals->getDeals();
+        $deals = $this->pipedrive->deals->getDeals();
+        $this->assertObjectHasAttribute('id', $deals[0]);
     }
 
     /**
@@ -38,11 +41,10 @@ class DealsTest extends PHPUnit_Framework_TestCase
      */
     public function testCanGetDealsWithParams()
     {
-        $params = array(
+        $this->pipedrive->deals->getDeals(array(
             'limit' => '1',
             'start' => '1'
-        );
-        $this->pipedrive->deals->getDeals($params);
+        ));
     }
 
     /**

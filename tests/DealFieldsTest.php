@@ -4,6 +4,7 @@ use Pinvoice\Pipedrive\API as PipedriveAPI;
 
 class DealFieldsTest extends PHPUnit_Framework_TestCase
 {
+
     private $pipedrive;
     private $dealfields;
     private $lastDealField;
@@ -64,17 +65,12 @@ class DealFieldsTest extends PHPUnit_Framework_TestCase
         // Translate keys
         $this->pipedrive->dealfields->translateDealFieldKeys($deal, $this->dealfields);
 
-        // TODO: Check the actual translation.
-
         // Should be unset
         $this->assertFalse(property_exists($deal, $this->lastDealField->key));
     }
 
     public function testGetDealFieldByKeyEmptyIsNull () {
-        $dealfields = $this->pipedrive->dealfields->getDealFieldByKey(
-            $this->lastDealField->key,
-            []
-        );
+        $dealfields = $this->pipedrive->dealfields->getDealFieldByKey($this->lastDealField->key, array());
 
         $this->assertNull($dealfields);
     }
