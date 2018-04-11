@@ -98,14 +98,13 @@ class HTTP
         foreach ($args as $key => $val) {
             if (in_array($key, $accepted_params)) {
                 if ($first) {
-                    $query_string .= $key . '=' . $val;
+                    $query_string .= $key . '=' . urlencode($val);
                 } else {
-                    $query_string .= '&' . $key . '=' . $val;
+                    $query_string .= '&' . $key . '=' . urlencode($val);
                 }
                 $first = false;
             } else {
-                throw new APIException("Param '" . $key . "' does not exist in function " .
-                    debug_backtrace()[1]['function'] . ".");
+                throw new APIException("Param '" . $key . "' does not exist in function ");
             }
         }
 
